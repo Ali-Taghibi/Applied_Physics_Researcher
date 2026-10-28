@@ -1,0 +1,2975 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ali Taghibi Khotbehsara | Applied Physics, Radiation Protection & Monte Carlo Modeling</title>
+  <meta name="description" content="Academic & Engineering Portal of Ali Taghibi Khotbehsara (K. N. Toosi University of Technology). Specializing in Geant4-DNA Wastewater Radiolysis, MCNP6 Mo-99 Hybrid Target Design, NCRP 151 Labyrinth Shielding, and Advanced Dosimetry." />
+  <meta name="keywords" content="Ali Taghibi Khotbehsara, Geant4-DNA, MCNP6, MCNPX, FLUKA, Electron Beam Wastewater Treatment, EBWT, Mo-99 Hybrid Target Heavy Water, Radiation Protection, NCRP 151, Labyrinth Shielding, Fiber Optic Dosimetry, KNTU" />
+  <meta name="author" content="Ali Taghibi Khotbehsara" />
+
+  <!-- Open Graph / Academic SEO -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Ali Taghibi Khotbehsara | Applied Physics & Radiation Engineering" />
+  <meta property="og:description" content="Bridging Subatomic Monte Carlo Physics with Macro-Scale Environmental & Medical Solutions." />
+
+  <!-- Google Fonts: Inter, JetBrains Mono, Vazirmatn (for Persian RTL) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Vazirmatn', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            persian: ['Vazirmatn', 'Inter', 'sans-serif']
+          },
+          colors: {
+            cherenkov: '#00D2FF',
+            cleanemerald: '#10B981',
+            deepnavy: '#060A12',
+            panelnavy: '#0D1526'
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Schema.org Structured Data for Academic SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Taghibi Khotbehsara",
+    "alternateName": "علی تعقیبی خطبه‌سرا",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "K. N. Toosi University of Technology"
+    },
+    "jobTitle": "Researcher & Engineer in Applied Physics and Radiation Protection",
+    "email": "mailto:khotbesara@email.kntu.ac.ir",
+    "knowsAbout": [
+      "Monte Carlo Particle Transport (Geant4-DNA, MCNP6, MCNPX, FLUKA)",
+      "Electron-Beam Wastewater and Flue Gas Treatment (EBWT & EBFGT)",
+      "Molybdenum-99 Production via High-Power Electron Accelerators & Heavy-Water Hybrid Targets",
+      "Industrial Accelerator Labyrinth Shielding (NCRP 151, IAEA)",
+      "Fiber Optic Dosimetry and Smart Fabrics"
+    ],
+    "sameAs": [
+      "https://orcid.org/0000-0001-8429-1850",
+      "https://scholar.google.com/citations?user=QGdMp1gAAAAJ&hl=en",
+      "https://www.researchgate.net/profile/Ali-Taghibi-Khotbeh-Sara",
+      "https://www.linkedin.com/in/ali-taghibi-khotbehsara"
+    ]
+  }
+  </script>
+
+  <style id="custom-styles">
+    :root {
+      --bg-primary: #060A12;
+      --bg-secondary: #0D1526;
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --accent-cyan: #00D2FF;
+      --accent-emerald: #10B981;
+      --card-border: rgba(0, 210, 255, 0.18);
+      --glass-bg: rgba(13, 21, 38, 0.72);
+    }
+
+    html:not(.dark) {
+      --bg-primary: #F8FAFC;
+      --bg-secondary: #FFFFFF;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --accent-cyan: #0284C7;
+      --accent-emerald: #059669;
+      --card-border: rgba(2, 132, 199, 0.22);
+      --glass-bg: rgba(255, 255, 255, 0.88);
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      background-image:
+        radial-gradient(circle at 15% 12%, rgba(0, 210, 255, 0.08) 0%, transparent 42%),
+        radial-gradient(circle at 85% 78%, rgba(16, 185, 129, 0.07) 0%, transparent 45%),
+        linear-gradient(to right, rgba(0, 210, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 210, 255, 0.045) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+      background-attachment: fixed;
+      color: var(--text-primary);
+      font-family: 'Inter', 'Vazirmatn', sans-serif;
+      overflow-x: hidden;
+      transition: background-color 0.35s ease, color 0.35s ease;
+    }
+
+    html:not(.dark) body {
+      background-image:
+        radial-gradient(circle at 15% 12%, rgba(2, 132, 199, 0.06) 0%, transparent 42%),
+        linear-gradient(to right, rgba(2, 132, 199, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(2, 132, 199, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 64px 64px, 64px 64px;
+    }
+
+    /* Industrial Section Separation & Technical Divider Beam */
+    main > section + section {
+      position: relative;
+      margin-top: 2.5rem;
+    }
+
+    main > section + section::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(0, 210, 255, 0.55) 35%, rgba(16, 185, 129, 0.65) 50%, rgba(0, 210, 255, 0.55) 65%, transparent 100%);
+      box-shadow: 0 0 16px rgba(0, 210, 255, 0.4);
+      pointer-events: none;
+    }
+
+    html[dir="rtl"] body {
+      font-family: 'Vazirmatn', 'Inter', sans-serif;
+    }
+
+    /* Interactive Top Navigation Links - Bold + Scale Up + Cherenkov Glow on Hover/Active */
+    .nav-item-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: var(--text-secondary);
+      border-radius: 0.6rem;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  color 0.22s ease,
+                  font-weight 0.2s ease,
+                  background-color 0.25s ease,
+                  box-shadow 0.25s ease;
+      transform-origin: center;
+    }
+
+    .nav-item-link:hover,
+    .nav-item-link.active {
+      color: #00D2FF !important;
+      font-weight: 800 !important;
+      transform: scale(1.16);
+      text-shadow: 0 0 14px rgba(0, 210, 255, 0.55);
+      background: rgba(0, 210, 255, 0.09);
+    }
+
+    html:not(.dark) .nav-item-link:hover,
+    html:not(.dark) .nav-item-link.active {
+      color: #0284C7 !important;
+      text-shadow: 0 0 10px rgba(2, 132, 199, 0.25);
+      background: rgba(2, 132, 199, 0.1);
+    }
+
+    .nav-item-link::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 18%;
+      right: 18%;
+      height: 2.5px;
+      background: linear-gradient(90deg, #00D2FF, #10B981);
+      border-radius: 99px;
+      transform: scaleX(0);
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 0 10px #00D2FF;
+    }
+
+    .nav-item-link:hover::after,
+    .nav-item-link.active::after {
+      transform: scaleX(1);
+    }
+
+    /* Balanced Hero Headline with Animated Gradient Spans */
+    .hero-balanced-title {
+      font-size: clamp(1.68rem, 2.45vw, 2.32rem);
+      line-height: 1.28;
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+
+    html[dir="rtl"] .hero-balanced-title {
+      font-size: clamp(1.55rem, 2.25vw, 2.15rem);
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    .gradient-highlight-full {
+      background: linear-gradient(95deg, #00D2FF 0%, #38BDF8 30%, #10B981 68%, #6EE7B7 85%, #00D2FF 100%);
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerGradient 7s linear infinite;
+      display: inline;
+    }
+
+    /* Special Holographic Cherenkov Profile Frame */
+    .profile-holo-wrapper {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+    }
+
+    .profile-orbit-ring {
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(0, 210, 255, 0.45);
+      animation: spinOrbit 18s linear infinite;
+    }
+
+    .profile-orbit-ring-reverse {
+      position: absolute;
+      inset: -22px;
+      border-radius: 50%;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-top-color: #10B981;
+      border-bottom-color: #00D2FF;
+      animation: spinOrbitReverse 12s linear infinite;
+    }
+
+    @keyframes spinOrbit {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes spinOrbitReverse {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .profile-hex-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.75rem;
+      overflow: hidden;
+      border: 2px solid rgba(0, 210, 255, 0.65);
+      box-shadow: 0 0 35px rgba(0, 210, 255, 0.28), inset 0 0 20px rgba(16, 185, 129, 0.2);
+      background: radial-gradient(circle at 50% 35%, #13233f 0%, #060A12 100%);
+    }
+
+    .profile-scan-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.85), transparent);
+      animation: scanVertical 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes scanVertical {
+      0%, 100% { top: 6%; opacity: 0.2; }
+      50% { top: 92%; opacity: 0.85; }
+    }
+
+    .gradient-highlight {
+      background: linear-gradient(90deg, #00D2FF 0%, #38BDF8 35%, #10B981 75%, #00D2FF 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerGradient 6s linear infinite;
+    }
+
+    @keyframes shimmerGradient {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Prominent Hero Sub-Labels */
+    .interface-pill-badge {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #00D2FF;
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px solid rgba(0, 210, 255, 0.38);
+      box-shadow: 0 0 20px rgba(0, 210, 255, 0.18), inset 0 0 10px rgba(0, 210, 255, 0.08);
+    }
+
+    html:not(.dark) .interface-pill-badge {
+      color: #0369A1;
+      background: rgba(2, 132, 199, 0.1);
+      border-color: rgba(2, 132, 199, 0.35);
+    }
+
+    .domain-sub-bar {
+      font-size: 1.12rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* Glassmorphic Interactive Cards with Spotlight Effect */
+    .sci-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.3s ease,
+                  box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sci-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 210, 255, 0.5);
+      box-shadow: 0 16px 38px -12px rgba(0, 210, 255, 0.2),
+                  0 0 22px -6px rgba(16, 185, 129, 0.15);
+    }
+
+    /* Simulation Monitor Tabs */
+    .sim-tab-btn {
+      transition: all 0.25s ease;
+    }
+    .sim-tab-btn.active {
+      background: linear-gradient(135deg, rgba(0, 210, 255, 0.22), rgba(16, 185, 129, 0.18));
+      border-color: #00D2FF;
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 0 15px rgba(0, 210, 255, 0.28);
+    }
+    html:not(.dark) .sim-tab-btn.active {
+      color: #0F172A;
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(16, 185, 129, 0.2));
+      border-color: #0284C7;
+    }
+
+    /* Timeline Node Pulse */
+    .timeline-node-btn {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .timeline-node-btn.active,
+    .timeline-node-btn:hover {
+      transform: scale(1.18);
+      box-shadow: 0 0 22px rgba(0, 210, 255, 0.65);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060A12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00D2FF;
+    }
+      .max-w-7xl {
+      max-width: 1560px !important; /* یا بنویسید 94% */
+    }
+  </style>
+</head>
+<body class="selection:bg-cyan-500 selection:text-slate-950 relative min-h-screen">
+
+  <!-- Interactive Background Particle & Cherenkov Track Canvas -->
+  <canvas id="bg-particle-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-95"></canvas>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="sticky top-0 z-50 border-b border-cyan-500/20 bg-slate-950/80 dark:bg-slate-950/80 light:bg-white/85 backdrop-blur-xl transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+      
+      <!-- Brand Identity -->
+      <a href="#top" class="flex items-center gap-3.5 group focus:outline-none">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-500/25 via-slate-900 to-emerald-500/25 border border-cyan-400/40 flex items-center justify-center shadow-lg shadow-cyan-500/10 group-hover:scale-105 group-hover:border-cyan-400 transition-all">
+          <!-- Custom SVG Radiation + Electron Track Mark -->
+          <svg class="w-7 h-7 text-cyan-400" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="15" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M6 26C12 18 20 12 30 8" stroke="#00D2FF" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M16 17L26 25" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M19 15L23 6" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="17.5" cy="16" r="3" fill="#00D2FF"/>
+            <circle cx="26" cy="25" r="2" fill="#10B981"/>
+            <circle cx="23" cy="6" r="2" fill="#38BDF8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2" data-i18n="brandName">
+          Ali Taghibi Khotbehsara
+          </div>
+          <div class="brand-sub text-cyan-400" data-i18n="brandSub1">
+            ◾ Researcher         
+          </div>
+          <div class="text-xs font-mono text-cyan-500 dark:text-cyan-400/80 tracking-wider" data-i18n="brandSub2">
+            ◾ Applied Physics & Environment
+          </div>
+        </div>
+      </a>
+
+      <!-- Center Interactive Navigation Links (Scale + Bold + Glow on Hover/Click) -->
+      <nav class="hidden md:flex items-center gap-1.5 lg:gap-3" aria-label="Main Navigation">
+        <a href="#about" class="nav-item-link" data-nav="about" data-i18n="navAbout">About Me</a>
+        <a href="#research" class="nav-item-link active" data-nav="research" data-i18n="navResearch">Research</a>
+        <a href="#timeline" class="nav-item-link" data-nav="timeline" data-i18n="navTimeline">E & E</a>
+        <a href="#publications" class="nav-item-link" data-nav="publications" data-i18n="navPublications">Publications</a>
+        <a href="#manual" class="nav-item-link" data-nav="manual" data-i18n="navManual">Networks</a>
+        <a href="#consulting" class="nav-item-link" data-nav="consulting" data-i18n="navConsulting">Consulting</a>
+        <a href="#roadmap" class="nav-item-link" data-nav="roadmap" data-i18n="navRoadmap">Roadmap</a>
+      </nav>
+
+      <!-- Right Action Controls: Export Code, Theme Switch, Language Switch -->
+      <div class="flex items-center gap-2 sm:gap-2.5">
+        <!-- Export / Download Source Files Button -->
+        <button id="open-export-modal-btn" type="button" class="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 hover:from-cyan-500/35 hover:to-emerald-500/35 text-cyan-300 border border-cyan-400/40 shadow-md shadow-cyan-500/10 flex items-center gap-1.5 transition-all hover:scale-105">
+          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          <span data-i18n="btnExportFiles">Export Files</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" type="button" aria-label="Toggle Dark/Light Mode" class="p-2.5 rounded-xl border border-slate-700/70 dark:border-slate-700/70 bg-slate-900/60 text-slate-200 hover:border-cyan-400 hover:text-cyan-400 transition-all">
+          <svg id="theme-icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+          <svg id="theme-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+
+        <!-- Bilingual EN / FA Switch -->
+        <button id="lang-toggle-btn" type="button" class="px-3 py-2 rounded-xl border border-cyan-500/40 bg-slate-900/80 text-xs font-mono font-bold text-white hover:border-cyan-400 transition-all flex items-center gap-1.5">
+          <span id="lang-ind-en" class="text-cyan-400">EN</span>
+          <span class="text-slate-500">/</span>
+          <span id="lang-ind-fa" class="text-slate-400">FA</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Row -->
+    <div class="flex md:hidden items-center justify-around border-t border-slate-800/80 py-2 px-2 bg-slate-950/95 text-xs overflow-x-auto">
+      <a href="#about" class="nav-item-link" data-nav="about" data-i18n="navAboutMob">About</a>
+      <a href="#research" class="nav-item-link active" data-nav="research" data-i18n="navResearch">Research</a>
+      <a href="#timeline" class="nav-item-link" data-nav="timeline" data-i18n="navTimelineMob">Timeline</a>
+      <a href="#publications" class="nav-item-link" data-nav="publications" data-i18n="navPublications">Publications</a>
+      <a href="#manual" class="nav-item-link" data-nav="manual" data-i18n="navManualMob">Manual</a>
+      <a href="#consulting" class="nav-item-link" data-nav="consulting" data-i18n="navConsulting">Consulting</a>
+      <a href="#roadmap" class="nav-item-link" data-nav="roadmap" data-i18n="navRoadmap">Roadmap</a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="top" class="relative z-10">
+
+    <!-- ================= HERO SECTION (ABOVE THE FOLD) ================= -->
+    <section class="pt-10 pb-24 lg:pt-14 lg:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+
+        <!-- Left Column: Balanced Typography, Sub-labels, CTAs & Strictly Separated Identity Cards -->
+        <div class="lg:col-span-7 space-y-5">
+          
+          <!-- Prominent Interface Badge (Fixed size: 0.95rem / 15px, Bold, Glowing Pill) -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full interface-pill-badge">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+            </span>
+            <span class="font-mono" data-i18n="heroBadge">RESEARCH INTERFACE </span>            
+          </div>
+
+          <!-- Prominent Domain Sub-label (Fixed size: 1.12rem / 18px, High-Contrast) -->
+          <div class="domain-sub-bar text-slate-800 dark:text-slate-100 flex flex-wrap items-center gap-x-2.5 gap-y-1">
+            <span data-i18n="heroSub1">Radiation Protection</span>
+            <span class="text-cyan-400 font-black">•</span>
+            <span data-i18n="heroSub2">Monte Carlo Particle Transport</span>
+            <span class="text-emerald-400 font-black">•</span>
+            <span data-i18n="heroSub3">Clean-Tech &amp; Medical Isotopes</span>
+          </div>
+
+          <!-- UNIFORM VARIANT/GRADIENT ON THE ENTIRE HERO HEADLINE -->
+          <h1 class="hero-balanced-title">
+            <span class="gradient-highlight-full" data-i18n="heroHeadline">
+              Bridging Subatomic Monte Carlo Physics with Macro-Scale Environmental &amp; Medical Solutions.
+            </span>
+          </h1>
+
+          <!-- Narrative Bio Paragraph -->
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-[800px] text-justify" data-i18n="heroBio">
+           I implement track-structure radiation physics concepts into practical engineering systems using Monte Carlo simulations—from Geant4-DNA wastewater radiolysis kinetics and MCNP6 heavy-water (D₂O) hybrid target design for ⁹⁹Mo production to industrial electron accelerator labyrinth shielding (NCRP 151) and smart fiber-optic dosimetry.
+          </p>
+
+          <!-- Primary CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-3.5 pt-1">
+            <a href="#research" class="px-5 py-3 rounded-xl font-bold text-sm sm:text-base bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/40 hover:scale-[1.03] transition-all flex items-center gap-2">
+              <span data-i18n="ctaExplore">Explore Research &amp; Simulations</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </a>
+            <a href="#consulting" class="px-5 py-3 rounded-xl font-semibold text-sm sm:text-base border border-cyan-500/40 bg-slate-900/70 text-cyan-300 hover:bg-cyan-500/15 hover:border-cyan-400 transition-all flex items-center gap-2">
+              <span data-i18n="ctaConsulting">Industrial Shielding &amp; RPP/RPR</span>
+            </a>
+            <a href="#about" class="px-4 py-3 rounded-xl font-mono text-xs sm:text-sm text-cyan-400 hover:text-emerald-400 underline underline-offset-4 transition-colors" data-i18n="ctaAbout">
+              About Me &amp; Profile →
+            </a>
+          </div>
+
+          <!-- STRICTLY SEPARATED 3-GROUP IDENTITY ARCHITECTURE (1. Academic Networks, 2. ORCID, 3. Institutional Email) -->
+          <div class="pt-4 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-12 gap-3">
+            
+            <!-- Group 1: Scientific & Professional Social Profiles -->
+            <div class="sm:col-span-12 rounded-xl bg-slate-900/55 border border-slate-800 p-3">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                <span data-i18n="grpSocialLabel">1. ACADEMIC &amp; PROFESSIONAL PROFILES:</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <!-- Google Scholar -->
+                <a href="https://scholar.google.com/citations?user=QGdMp1gAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl sci-card flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-200 hover:text-cyan-300 group">
+                  <svg class="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+                  </svg>
+                  <span>Google Scholar</span>
+                </a>
+
+                <!-- ResearchGate -->
+                <a href="https://www.researchgate.net/profile/Ali-Taghibi-Khotbeh-Sara" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl sci-card flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-200 hover:text-emerald-300 group">
+                  <svg class="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.121 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53c.025.153.063.3.113.438.244.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.558.177-.93a10.9 10.9 0 0 0 .043-1.207v-.82c0-.095-.047-.142-.14-.142h-3.064c-.094 0-.14.047-.14.141v.956c0 .094.046.14.14.14h1.666c-.056.562-.237.982-.542 1.26-.305.277-.72.416-1.246.416-.573 0-1.015-.153-1.326-.46-.31-.306-.512-.738-.606-1.298a11.41 11.41 0 0 1-.07-1.422c0-.592.023-1.077.07-1.454.094-.56.296-.993.606-1.3.31-.306.753-.46 1.326-.46.49 0 .895.125 1.215.374.32.25.523.616.61 1.1.018.094.074.132.168.113l1.396-.254c.094-.019.132-.075.113-.17-.17-.827-.555-1.466-1.157-1.917-.601-.45-1.38-.676-2.337-.676zM4.24 7.5v14.88c0 .094.047.14.14.14h2.17c.095 0 .142-.046.142-.14V16.06h2.255c.92 0 1.724.756 2.255 2.058l1.69 4.262c.038.094.104.14.198.14h2.312c.094 0 .122-.046.085-.14l-1.974-4.708c-.338-.808-.855-1.475-1.55-2.002.996-.244 1.77-.724 2.325-1.438.555-.714.832-1.616.832-2.707 0-1.372-.442-2.406-1.325-3.102-.884-.695-2.162-1.043-3.835-1.043H4.38c-.093 0-.14.047-.14.14zm2.452 2.086h3.073c.977 0 1.71.202 2.199.606.489.404.733 1.02.733 1.847 0 .846-.244 1.476-.733 1.89-.489.413-1.222.62-2.2.62H6.693V9.586z"/>
+                  </svg>
+                  <span>ResearchGate</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/ali-taghibi-khotbehsara" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl sci-card flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-200 hover:text-sky-300 group">
+                  <svg class="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Group 2: Dedicated ORCID Identifier Box (Separated) -->
+            <div class="sm:col-span-5 rounded-xl bg-lime-950/20 border border-lime-500/35 p-3 flex flex-col justify-between">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-lime-400 mb-1.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-lime-400"></span>
+                <span data-i18n="grpOrcidLabel">2. RESEARCHER ORCID ID:</span>
+              </div>
+              <a href="https://orcid.org/0000-0001-8429-1850" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-slate-900/90 border border-lime-500/40 flex items-center justify-between gap-2 text-xs font-mono font-bold text-lime-300 hover:bg-lime-500/15 transition-all group">
+                <span class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-lime-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/>
+                  </svg>
+                  <span>0000-0001-8429-1850</span>
+                </span>
+                <span class="text-[10px] px-1.5 py-0.5 rounded bg-lime-500/20 text-lime-300">↗</span>
+              </a>
+            </div>
+
+            <!-- Group 3: Dedicated Institutional Email Box (Separated) -->
+            <div class="sm:col-span-7 rounded-xl bg-cyan-950/20 border border-cyan-500/35 p-3 flex flex-col justify-between">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-cyan-400 mb-1.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                <span data-i18n="grpEmailLabel">3. OFFICIAL ACADEMIC EMAIL (KNTU):</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button id="copy-email-hero-btn" type="button" class="flex-1 px-3 py-2 rounded-xl bg-slate-900/90 border border-cyan-500/40 flex items-center justify-between gap-2 text-xs font-mono text-cyan-300 hover:border-cyan-400 group" title="Click to copy institutional email">
+                  <span class="flex items-center gap-2 truncate">
+                    <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="truncate">khotbesara@email.kntu.ac.ir</span>
+                  </span>
+                  <span id="copy-email-badge" class="px-2 py-0.5 text-[10px] rounded bg-cyan-500/20 text-cyan-300 group-hover:bg-cyan-400 group-hover:text-slate-950 transition-colors shrink-0" data-i18n="btnCopy">Copy</span>
+                </button>
+                <a href="mailto:khotbesara@email.kntu.ac.ir" class="px-3 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-xs font-mono font-bold text-cyan-200 hover:bg-cyan-400 hover:text-slate-950 transition-colors shrink-0" data-i18n="btnSendMail">
+                  Mail ✉
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive 3-Mode Live Monte Carlo Simulation Monitor + Multi-Timescale Kinetic Chart -->
+        <div class="lg:col-span-5">
+          <div id="hero-sim-card" class="sci-card rounded-2xl p-4 sm:p-5 border border-cyan-500/35 shadow-2xl shadow-cyan-500/10">
+            
+            <!-- Monitor Top Header -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2.5 mb-3">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-mono text-xs uppercase tracking-wider text-cyan-400 font-bold" data-i18n="simMonitorTitle">INTERACTIVE MONTE CARLO MONITOR</span>
+              </div>
+              <span id="sim-code-tag" class="font-mono text-[11px] px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                Geant4-DNA · Track-Structure
+              </span>
+            </div>
+
+            <!-- 3 Switchable Simulation Mode Tabs -->
+            <div class="grid grid-cols-3 gap-2 mb-3" role="tablist">
+              <button type="button" class="sim-tab-btn active px-2 py-2 rounded-xl border border-slate-700/80 text-[11px] font-mono text-center" data-sim-mode="radiolysis" data-i18n="simTab1">
+                1. Geant4-DNA Radiolysis
+              </button>
+              <button type="button" class="sim-tab-btn px-2 py-2 rounded-xl border border-slate-700/80 text-[11px] font-mono text-slate-300 text-center" data-sim-mode="mo99" data-i18n="simTab2">
+                2. MCNP6 ⁹⁹Mo D₂O Target
+              </button>
+              <button type="button" class="sim-tab-btn px-2 py-2 rounded-xl border border-slate-700/80 text-[11px] font-mono text-slate-300 text-center" data-sim-mode="labyrinth" data-i18n="simTab3">
+                3. NCRP 151 Labyrinth
+              </button>
+            </div>
+
+            <!-- Interactive HTML5 Canvas Viewport (Particle Collisions + Transient Symbols + Trace Pollutant Scavenging) -->
+            <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-800 h-56 sm:h-60">
+              <canvas id="hero-sim-canvas" class="w-full h-full block"></canvas>
+              <div class="absolute top-2 left-2.5 right-2.5 flex items-center justify-between pointer-events-none text-[10px] font-mono text-slate-300">
+                <span class="bg-slate-950/80 px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-300" data-i18n="simLegendTop">
+                  e⁻ + H₂O → •OH, e⁻_aq, H•, H₂O₂ → Trace Pollutant Removal
+                </span>
+                <span id="pollutant-removed-badge" class="bg-emerald-950/90 px-2 py-0.5 rounded border border-emerald-500/40 text-emerald-300 font-bold">
+                  Trace Eliminated: 98.4%
+                </span>
+              </div>
+              <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between pointer-events-none text-[10px] font-mono text-slate-300 bg-slate-950/80 px-2.5 py-1 rounded-lg border border-slate-800/80">
+                <span id="sim-canvas-caption">e⁻ Beam → H₂O Radiolysis → Trace Micropollutant Mineralization</span>
+                <span class="text-emerald-400">LIVE HUD</span>
+              </div>
+            </div>
+
+            <!-- DYNAMIC REAL-TIME SPECIES CONCENTRATION CHART ACROSS fs → ps → ns → µs -->
+            <div id="kinetics-chart-container" class="mt-3 rounded-xl bg-slate-950/95 border border-slate-800 p-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-1 mb-1.5 text-[10px] font-mono">
+                <span class="text-slate-300 font-bold" data-i18n="kineticsChartTitle">
+                  SPECIES &amp; TRACE POLLUTANT KINETICS (fs → ps → ns → µs):
+                </span>
+                <span id="kinetics-time-readout" class="px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-300 font-bold">
+                  t = 10⁻⁹ s (ns · Spur Reaction)
+                </span>
+              </div>
+              <div class="relative h-28 w-full">
+                <canvas id="hero-kinetics-canvas" class="w-full h-full block"></canvas>
+              </div>
+              <div class="flex flex-wrap items-center justify-between gap-2 mt-1.5 pt-1 border-t border-slate-900 text-[10px] font-mono">
+                <span class="flex items-center gap-1 text-cyan-400"><i class="w-2 h-2 rounded-full bg-cyan-400 inline-block"></i> •OH Radical</span>
+                <span class="flex items-center gap-1 text-indigo-400"><i class="w-2 h-2 rounded-full bg-indigo-400 inline-block"></i> e⁻_aq</span>
+                <span class="flex items-center gap-1 text-amber-400"><i class="w-2 h-2 rounded-full bg-amber-400 inline-block"></i> H₂O₂</span>
+                <span class="flex items-center gap-1 text-rose-400"><i class="w-2 h-2 rounded-full bg-rose-400 inline-block"></i> Trace Pollutant (ng/L)</span>
+              </div>
+            </div>
+
+            <!-- Interactive Parameter Slider & Real-time Readouts -->
+            <div class="mt-3 pt-2.5 border-t border-slate-800/90 space-y-2.5">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <label for="sim-param-slider" id="sim-slider-label" class="text-slate-300 font-semibold">
+                  Electron Beam Absorbed Dose:
+                </label>
+                <span id="sim-slider-value" class="text-cyan-400 font-bold text-sm">15 kGy</span>
+              </div>
+              <input id="sim-param-slider" type="range" min="1" max="50" value="15" class="w-full accent-cyan-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg" />
+
+              <!-- 3 Live Telemetry Metrics -->
+              <div class="grid grid-cols-3 gap-2 pt-0.5">
+                <div class="p-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                  <div id="sim-metric-1-label" class="text-[10px] font-mono uppercase text-slate-400">•OH / e⁻_aq Yield</div>
+                  <div id="sim-metric-1-val" class="text-xs sm:text-sm font-mono font-bold text-cyan-400 mt-0.5">2.93 µM/J</div>
+                </div>
+                <div class="p-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                  <div id="sim-metric-2-label" class="text-[10px] font-mono uppercase text-slate-400">pH Inflection</div>
+                  <div id="sim-metric-2-val" class="text-xs sm:text-sm font-mono font-bold text-emerald-400 mt-0.5">pH 6.08</div>
+                </div>
+                <div class="p-2 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+                  <div id="sim-metric-3-label" class="text-[10px] font-mono uppercase text-slate-400">Trace Pollutant</div>
+                  <div id="sim-metric-3-val" class="text-xs sm:text-sm font-mono font-bold text-sky-400 mt-0.5">-98.4% Rem.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= NEW SECTION: ABOUT ME & SCIENTIFIC TRAJECTORY (WITH LINKEDIN PROFILE PHOTO FRAME) ================= -->
+    <section id="about" class="py-24 lg:py-28 border-t border-cyan-500/25 bg-slate-900/35">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="sci-card rounded-3xl p-6 sm:p-10 border border-cyan-500/30">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <!-- Left 4 Cols: Special Holographic Cherenkov Profile Photo Frame -->
+            <div class="lg:col-span-4 flex flex-col items-center text-center">
+              <div class="profile-holo-wrapper mb-4">
+                <div class="profile-orbit-ring"></div>
+                <div class="profile-orbit-ring-reverse"></div>
+                <div class="profile-hex-frame flex items-center justify-center group">
+                  <!-- Profile Image (Loads public academic photo or user-selected LinkedIn photo, with stylized fallback) -->
+                  <img
+                    id="researcher-profile-img"
+                    src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=QGdMp1gAAAAJ"
+                    alt="Ali Taghibi Khotbehsara - علی تعقیبی خطبه‌سرا"
+                    class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    onerror="this.style.display='none'; document.getElementById('profile-svg-avatar').classList.remove('hidden');"
+                  />
+                  <!-- High-Tech Scientific Portrait Fallback if LinkedIn/Scholar blocks external hotlink -->
+                  <div id="profile-svg-avatar" class="hidden w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-b from-slate-900 via-slate-950 to-cyan-950/60">
+                    <svg class="w-28 h-28 text-cyan-400/90 mb-1" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="60" cy="60" r="54" stroke="#00D2FF" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 4"/>
+                      <circle cx="60" cy="44" r="20" fill="url(#avatarGrad)" stroke="#00D2FF" stroke-width="2"/>
+                      <path d="M24 102C28 80 42 70 60 70C78 70 92 80 96 102" fill="url(#avatarGrad)" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+                      <defs>
+                        <linearGradient id="avatarGrad" x1="20" y1="20" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#00D2FF" stop-opacity="0.35"/>
+                          <stop offset="1" stop-color="#10B981" stop-opacity="0.25"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <span class="font-mono text-[11px] font-bold text-cyan-300">ALI TAGHIBI KHOTBEHSARA</span>
+                  </div>
+                  <div class="profile-scan-line"></div>
+                </div>
+              </div>
+
+              <!-- Name & Academic Title under Portrait -->
+              <h3 class="text-lg font-extrabold text-white mt-2" data-i18n="aboutCardName">Ali Taghibi Khotbehsara</h3>
+              <p class="text-xs font-mono text-cyan-400 mt-0.5" data-i18n="aboutCardRole">Researcher / Applied Physics</p>
+
+              <!-- 1-Click LinkedIn Photo Uploader (Bakes into LocalStorage & Exported HTML) -->
+              <div class="mt-3 flex flex-wrap items-center justify-center gap-2">                                 
+              </div>              
+            </div>
+
+            <!-- Right 8 Cols: Executive Summary & Scientific Trajectory (Nature Human Behaviour "Bio" & "Values" Standard) -->
+            <div class="lg:col-span-8 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold" data-i18n="aboutSecTag">
+                EXECUTIVE BIOGRAPHY &amp; SCIENTIFIC TRAJECTORY
+              </div>
+              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white " data-i18n="aboutSecTitle">
+                Scientific Journey From Subatomic Physics to Industrial Technologies and Clinical Impact  
+              </h2>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify" data-i18n="aboutPara1">
+                My academic journey began with a B.Sc. in Physics at Damghan University (2011–2015), followed by graduate research in Applied Physics at K. N. Toosi University of Technology (2015–2018). Throughout my career, my core scientific mission has been to bridge high-precision Monte Carlo particle transport codes (Geant4-DNA, MCNP6, MCNPX, and FLUKA) with urgent environmental and medical engineering challenges.
+              </p>
+              <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed text-justify" data-i18n="aboutPara2">
+                In environmental technology, I model the nanoscale radiolysis of water and wastewater under high-energy electron beams (EBWT/EBFGT)—showing how reactive species (•OH, e⁻_aq, H•) mineralize persistent trace micropollutants that conventional treatments fail to remove. In nuclear medicine and radiation protection, I have co-designed heavy-water (D₂O) hybrid targets for accelerator-based Molybdenum-99 (⁹⁹Mo) production, authored NCRP 151 labyrinth shielding and RPP/RPR frameworks, and coordinated interdisciplinary R&amp;D on smart fiber-optic dosimetric fabrics.
+              </p>
+
+              <!-- Core Values & Education Highlights Bar -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3">
+                <div class="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
+                  <div class="text-xs font-mono text-cyan-400 font-bold" data-i18n="eduBox1Title">Academic Formation</div>
+                  <div class="text-xs text-slate-300 mt-1" data-i18n="eduBox1Desc">M.Sc. Applied Physics (K. N. Toosi Univ. of Tech) · B.Sc. Physics (Damghan Univ.)</div>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
+                  <div class="text-xs font-mono text-emerald-400 font-bold" data-i18n="eduBox2Title">Simulation Mastery</div>
+                  <div class="text-xs text-slate-300 mt-1" data-i18n="eduBox2Desc">Geant4-DNA · MCNP6 / MCNPX · FLUKA · Coupled Thermal-Mechanical Analysis</div>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800">
+                  <div class="text-xs font-mono text-sky-400 font-bold" data-i18n="eduBox3Title">Core Scientific Values</div>
+                  <div class="text-xs text-slate-300 mt-1" data-i18n="eduBox3Desc">Open Reproducible Science · Regulatory Rigor (NCRP/IAEA) · Agile Teamwork</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 1: CORE RESEARCH PILLARS ================= -->
+    <section id="research" class="py-24 lg:py-28 border-t border-cyan-500/25 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <div class="text-3xl font-mono tracking-widest text-emerald-400 font-bold mb-2" data-i18n="secResearchTag">
+            Research Area
+          </div>
+          <h2 class="text-2xl sm:text-2xl font-extrabold text-slate-500 text-cyan-300" data-i18n="secResearchTitle">
+            Interconnected Research &amp; Engineering Projects
+          </h2>
+        </div>
+        <p class="text-sm text-slate-400 max-w-xl" data-i18n="secResearchDesc">
+          Combining nanoscale track-structure Monte Carlo simulations with macro-scale nuclear, thermal-mechanical, and environmental process engineering.
+        </p>
+      </div>
+      <!-- 4 Pillars Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Pillar 1: Geant4-DNA & EBWT/EBFGT -->
+        <article class="sci-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                Geant4-DNA · Kinetic Modeling
+              </span>
+              <span class="font-mono text-xs text-slate-400">PILLAR 01</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5" data-i18n="pillar1Title">
+              Electron-Beam Wastewater &amp; Flue Gas Treatment (EBWT / EBFGT)
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4" data-i18n="pillar1Body">
+              Predictive kinetic modeling of water and municipal/industrial wastewater radiolysis under high-energy electron irradiation. Quantifying primary radical yields (•OH, e⁻_aq, H•), dissolved oxygen scavenging mechanisms, and dose-dependent pH inflection points inside continuous-flow reaction chambers.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-emerald-400">
+            <span>• Radical Yield &amp; Scavenger Kinetics</span>
+            <span>• pH Dynamics &amp; EBFGT NOx/SOx</span>
+          </div>
+        </article>
+
+        <!-- Pillar 2: Mo-99 Hybrid Target with Heavy Water (MCNP6) -->
+        <article class="sci-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                MCNP6 / MCNPX · Thermal-Mechanical
+              </span>
+              <span class="font-mono text-xs text-slate-400">PILLAR 02</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5" data-i18n="pillar2Title">
+              ⁹⁹Mo Medical Radioisotope Production via Heavy-Water (D₂O) Hybrid Targets
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4" data-i18n="pillar2Body">
+              Conceptual design, neutronic optimization, and comprehensive thermal-mechanical analysis of a novel hybrid target utilizing heavy water (D₂O) for producing Molybdenum-99 (⁹⁹Mo / ⁹⁹ᵐTc) using high-power electron accelerators—coupling photonuclear (γ,n) and neutron capture (n,γ) pathways without enriched uranium.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-cyan-400">
+            <span>• Photonuclear + Neutron Capture Coupling</span>
+            <span>• CFD / Thermal Stress Safety</span>
+          </div>
+        </article>
+
+        <!-- Pillar 3: Labyrinth Shielding & RPP/RPR -->
+        <article class="sci-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-sky-500/15 text-sky-300 border border-sky-500/30">
+                NCRP 151 · IAEA · FLUKA &amp; MCNP6
+              </span>
+              <span class="font-mono text-xs text-slate-400">PILLAR 03</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5" data-i18n="pillar3Title">
+              Industrial Accelerator Labyrinth Shielding &amp; Radiation Protection (RPP/RPR)
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4" data-i18n="pillar3Body">
+              End-to-end radiation protection engineering for low-, medium-, and high-energy industrial electron accelerators.Analytical NCRP 151 and Monte Carlo evaluations of bremsstrahlung X-ray transmission, ozone/skyshine assessment, multi-leg maze radiation streaming, and regulatory RPP/RPR documentation.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-sky-400">
+            <span>• Maze Streaming Attenuation</span>
+            <span>• Regulatory RPP / RPR Authoring</span>
+          </div>
+        </article>
+
+        <!-- Pillar 4: Smart Fabrics & Fiber Optic Dosimetry -->
+        <article class="sci-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/30">
+                Smart Dosimetry · Next-Gen Nuclear
+              </span>
+              <span class="font-mono text-xs text-slate-400">PILLAR 04</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2.5" data-i18n="pillar4Title">
+              Fiber Optic Dosimetry, Smart Fabrics &amp; Emerging Nuclear Horizons
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4" data-i18n="pillar4Body">
+              Interdisciplinary R&amp;D and agile project administration in distributed fiber-optic radiation sensors and wearable smart dosimetric fabrics for real-time spatial dose mapping, alongside technical tracking of fourth-generation microreactors, helium-cooled nuclear batteries, and international nuclear law.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-purple-400">
+            <span>• Distributed Optical Fiber Sensors</span>
+            <span>• Microreactors &amp; Nuclear Law</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: INTERACTIVE VECTOR TIMELINE (1970s–PRESENT) ================= -->
+    <section id="timeline" class="py-24 lg:py-28 border-t border-cyan-500/25 bg-slate-900/35">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
+          <div class="text-3xl font-mono tracking-widest text-lime-400 font-bold mb-2" data-i18n="secTimelineTag">
+            E-Beam &amp; Environment
+          </div>
+          <h2 class="text-2xl sm:text-2xl font-extrabold text-slate-500 text-cyan-300" data-i18n="secTimelineTitle">
+            1- Evolution of Electron-Beam Wastewater Treatment (1970s–Present)
+          </h2>
+          <p class="text-sm text-slate-400 mt-1" data-i18n="secTimelineSub">
+            Click on each historical milestone node below to inspect the physics, accelerator engineering, and kinetic modeling breakthroughs.
+          </p>
+        </div>
+
+        <!-- 1. Interactive EBWT SVG Vector Timeline Bar -->
+        <div class="sci-card rounded-2xl p-6 sm:p-8">
+          <div class="relative mb-8">
+            <!-- Connecting Gradient Line -->
+            <div class="hidden sm:block absolute top-1/2 left-8 right-8 h-1 -translate-y-1/2 bg-gradient-to-r from-cyan-500 via-sky-400 to-emerald-400 rounded-full opacity-50"></div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 relative z-10">
+              <button type="button" class="timeline-node-btn ebwt-node-btn active flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-cyan-400 text-center cursor-pointer" data-era="1970s">
+                <span class="w-4 h-4 rounded-full bg-cyan-400 mb-2 shadow-lg shadow-cyan-400/50"></span>
+                <span class="font-mono text-sm font-extrabold text-cyan-400">1970s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="era1Short">Pilot Dosimetry</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebwt-node-btn flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-era="1980s">
+                <span class="w-4 h-4 rounded-full bg-sky-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-sky-400">1980s–90s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="era2Short">Industrial Scale-Up</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebwt-node-btn flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-era="2000s">
+                <span class="w-4 h-4 rounded-full bg-teal-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-teal-400">2000s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="era3Short">Hybrid AOP &amp; Textile</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebwt-node-btn flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-era="2010s">
+                <span class="w-4 h-4 rounded-full bg-emerald-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-emerald-400">2010s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="era4Short">Monte Carlo Dosimetry</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebwt-node-btn col-span-2 sm:col-span-1 flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-era="2020s">
+                <span class="w-4 h-4 rounded-full bg-lime-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-lime-400">2020s–Now</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="era5Short">Geant4-DNA Kinetics</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Era Detail Panel (EBWT) -->
+          <div id="timeline-detail-panel" class="rounded-xl bg-slate-950/80 border border-cyan-500/30 p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center transition-all duration-300">
+            <div class="lg:col-span-8 space-y-2.5">
+              <div class="flex flex-wrap items-center gap-3">
+                <span id="tl-badge" class="px-3 py-1 rounded-md font-mono text-xs font-bold bg-cyan-500/20 text-cyan-300">1970s MILESTONE</span>
+                <h3 id="tl-title" class="text-lg sm:text-xl font-bold text-white">
+                  Foundational Pulse Radiolysis &amp; Boston Deer Island Sludge Pilots
+                </h3>
+              </div>
+              <p id="tl-desc" class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                Early empirical validation of high-energy electron beams for disinfecting municipal sewage sludge and degrading recalcitrant organic pollutants. Researchers established primary water radiolysis G-values, though depth-dose uniformity and multi-scavenger competition remained empirical approximations.
+              </p>
+            </div>
+            <div class="lg:col-span-4 rounded-xl bg-slate-900/90 border border-slate-800 p-4 font-mono text-xs space-y-2">
+              <div class="text-slate-400 uppercase" data-i18n="tlKeyParamsLabel">Key Technical Parameters:</div>
+              <div id="tl-spec-1" class="text-cyan-300">• Beam Energy: 0.75 – 3.0 MeV</div>
+              <div id="tl-spec-2" class="text-emerald-300">• Modeling: Empirical G-Value Tables</div>
+              <div id="tl-spec-3" class="text-sky-300">• Focus: Coliform Inactivation &amp; BOD/COD</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Evolution of Electron-Beam Flue Gas Treatment (EBFGT) -->
+        <div class="mt-20 pt-12 border-t border-cyan-500/20 mb-8">
+          <h2 class="text-2xl sm:text-2xl font-extrabold text-slate-500 text-cyan-300" data-i18n="secFlueTimelineTitle">
+            2- Evolution of Electron-Beam Flue Gas Treatment (1970s–Present)
+          </h2>
+          <p class="text-sm text-slate-400 mt-1" data-i18n="secFlueTimelineSub">
+            Click on each historical milestone node below to explore plasma-chemical radical pathways, dry ammonium fertilizer recovery, and multi-pollutant (SO₂ / NOₓ / VOCs / Dioxins) abatement advances.
+          </p>
+        </div>
+
+        <!-- Interactive EBFGT SVG Vector Timeline Bar -->
+        <div class="sci-card rounded-2xl p-6 sm:p-8">
+          <div class="relative mb-8">
+            <!-- Connecting Gradient Line -->
+            <div class="hidden sm:block absolute top-1/2 left-8 right-8 h-1 -translate-y-1/2 bg-gradient-to-r from-cyan-500 via-sky-400 to-emerald-400 rounded-full opacity-50"></div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 relative z-10">
+              <button type="button" class="timeline-node-btn ebfgt-node-btn active flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-cyan-400 text-center cursor-pointer" data-ebfgt-era="1970s">
+                <span class="w-4 h-4 rounded-full bg-cyan-400 mb-2 shadow-lg shadow-cyan-400/50"></span>
+                <span class="font-mono text-sm font-extrabold text-cyan-400">1970s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="flueEra1Short">JAERI &amp; Ebara Pioneers</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebfgt-node-btn flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-ebfgt-era="1980s">
+                <span class="w-4 h-4 rounded-full bg-sky-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-sky-400">1980s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="flueEra2Short">Coal &amp; Steel Pilots</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebfgt-node-btn flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-ebfgt-era="1990s">
+                <span class="w-4 h-4 rounded-full bg-teal-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-teal-400">1990s–2000s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="flueEra3Short">Chengdu &amp; Pomorzany</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebfgt-node-btn flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-ebfgt-era="2010s">
+                <span class="w-4 h-4 rounded-full bg-emerald-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-emerald-400">2010s</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="flueEra4Short">VOCs, Dioxins &amp; Marine</span>
+              </button>
+
+              <button type="button" class="timeline-node-btn ebfgt-node-btn col-span-2 sm:col-span-1 flex flex-col items-center p-3 rounded-xl bg-slate-900/90 border border-slate-700 text-center cursor-pointer" data-ebfgt-era="2020s">
+                <span class="w-4 h-4 rounded-full bg-lime-400 mb-2"></span>
+                <span class="font-mono text-sm font-extrabold text-lime-400">2020s–Now</span>
+                <span class="text-xs text-slate-300 mt-0.5" data-i18n="flueEra5Short">Multi-Phase MC &amp; Hybrid</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Era Detail Panel (EBFGT) -->
+          <div id="ebfgt-detail-panel" class="rounded-xl bg-slate-950/80 border border-cyan-500/30 p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center transition-all duration-300">
+            <div class="lg:col-span-8 space-y-2.5">
+              <div class="flex flex-wrap items-center gap-3">
+                <span id="ebfgt-badge" class="px-3 py-1 rounded-md font-mono text-xs font-bold bg-cyan-500/20 text-cyan-300">1970s MILESTONE</span>
+                <h3 id="ebfgt-title" class="text-lg sm:text-xl font-bold text-white">
+                  Discovery of Dry Simultaneous SO₂/NOₓ Radiolytic Oxidation &amp; Ammonia Injection
+                </h3>
+              </div>
+              <p id="ebfgt-desc" class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                Pioneering batch and bench-scale experiments by Ebara Corp. and JAERI (Japan) demonstrated that irradiating humid flue gas with high-energy electrons generates oxidizing radicals (•OH, O•, HO₂•) that rapidly convert SO₂ and NOₓ into H₂SO₄ and HNO₃, which react with stoichiometric NH₃ to form solid agricultural fertilizer aerosols.
+              </p>
+            </div>
+            <div class="lg:col-span-4 rounded-xl bg-slate-900/90 border border-slate-800 p-4 font-mono text-xs space-y-2">
+              <div class="text-slate-400 uppercase" data-i18n="tlKeyParamsLabel">Key Technical Parameters:</div>
+              <div id="ebfgt-spec-1" class="text-cyan-300">• Beam Energy: 0.3 – 0.75 MeV (Bench &amp; Pilot)</div>
+              <div id="ebfgt-spec-2" class="text-emerald-300">• Mechanism: N₂/O₂/H₂O → •OH, O(³P), HO₂•</div>
+              <div id="ebfgt-spec-3" class="text-sky-300">• Byproduct: Dry (NH₄)₂SO₄ &amp; NH₄NO₃ Aerosol</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: FILTERABLE PUBLICATIONS & RESEARCH HUB ================= -->
+    <section id="publications" class="py-24 lg:py-28 border-t border-cyan-500/25 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="text-3xl font-mono tracking-widest text-cyan-400 font-bold mb-4" data-i18n-html="secPubsTitle">
+            Publications, Technical Manuscripts <br> & Frameworks
+          </div>
+          <h2 class="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold mb-2" data-i18n="secPubsTag">
+            VERIFIED RESEARCH OUTPUTS & SCHOLARLY CONTRIBUTIONS
+          </h2>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="flex flex-wrap gap-2" role="group" aria-label="Filter Publications">
+          <button type="button" class="pub-filter-btn active px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-cyan-500 text-slate-950 transition-all" data-filter="all" data-i18n="filterAll">All Works</button>
+          <button type="button" class="pub-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyan-400 transition-all" data-filter="mo99" data-i18n="filterMo99">⁹⁹Mo &amp; MCNP6</button>
+          <button type="button" class="pub-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyan-400 transition-all" data-filter="radiolysis" data-i18n="filterRadiolysis">Geant4-DNA &amp; EBWT</button>
+          <button type="button" class="pub-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyan-400 transition-all" data-filter="shielding" data-i18n="filterShielding">Shielding &amp; Dosimetry</button>
+        </div>
+      </div>
+
+      <!-- Publications List -->
+      <div id="publications-grid" class="space-y-4">
+
+        <!-- Pub 1: Geant4-DNA Wastewater Radiolysis (2026) -->
+        <article class="pub-card sci-card rounded-2xl p-6" data-category="radiolysis">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+              Journal of Environmental Chemical Engineering · Geant4-DNA Study
+            </span>
+            <span class="font-mono text-xs text-emerald-400">2026 · Track-Structure &amp; Kinetic Modeling</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">
+            Predictive Kinetic Modeling of Wastewater Radiolysis in Electron Beam Treatment: A Geant4-DNA Investigation of Scavenger Mechanisms and pH Inflection Dynamics
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <strong>Ali Taghibi Khotbehsara</strong> — Couples nanoscale Monte Carlo track-structure radiolysis yields ($\cdot\text{OH}$, $e^-_{\text{aq}}$, $\text{H}^\cdot$, $\text{H}_2\text{O}_2$) across femtosecond to microsecond scales with bulk reaction networks to predict dissolved oxygen depletion, scavenger competition, trace micropollutant mineralization, and pH inflection points in industrial EBWT reactors.
+          </p>
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs font-mono">
+            <div class="flex flex-wrap gap-2 text-cyan-400">
+              <span>#Geant4_DNA</span>
+              <span>#WastewaterRadiolysis</span>
+              <span>#TraceMicropollutants</span>
+              <span>#pHInflection</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://orcid.org/0000-0001-8429-1850" target="_blank" rel="noopener noreferrer" class="text-lime-400 hover:underline">ORCID Record ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pub 2: Conceptual design of hybrid target for Mo-99 based on heavy water (Nuclear Engineering and Technology, 2023) -->
+        <article class="pub-card sci-card rounded-2xl p-6" data-category="mo99">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              Nuclear Engineering and Technology · Peer-Reviewed Journal Article
+            </span>
+            <span class="font-mono text-xs text-slate-400">Feb 2023 · Verified on Google Scholar &amp; ResearchGate</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">
+            Conceptual design of hybrid target for molybdenum-99 production based on heavy water
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            Ali Torkamani, <strong>Ali Taghibi Khotbehsara</strong>, Faezeh Rahmani, Alexander Khelvas, Farshad Ghasemi — Investigates a dual-pathway hybrid target architecture utilizing heavy water ($\text{D}_2\text{O}$) photoneutron moderation and multiplication alongside high-power electron bremsstrahlung converters to maximize $^{99}\text{Mo}$ production yields.
+          </p>
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs font-mono">
+            <div class="flex flex-wrap gap-2 text-cyan-400">
+              <span>#Molybdenum99</span>
+              <span>#HeavyWaterHybridTarget</span>
+              <span>#MCNP6</span>
+              <span>#Photoneutron</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://scholar.google.com/citations?user=QGdMp1gAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">Google Scholar ↗</a>
+              <a href="https://www.researchgate.net/profile/Ali-Taghibi-Khotbeh-Sara" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">ResearchGate ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pub 3: Feasibility study of Mo-99 production using high-power electron Linac (Radiation Physics and Engineering, 2021) -->
+        <article class="pub-card sci-card rounded-2xl p-6" data-category="mo99">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+              Radiation Physics and Engineering · Vol. 2(1), pp. 9–17
+            </span>
+            <span class="font-mono text-xs text-slate-400">Jan 2021 · DOI: 10.22034/rpe.2021.252856.1026</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">
+            Feasibility study of Mo-99 production using high-power electron Linac: Nuclear and thermal-mechanical analysis based on photoneutron interaction
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <strong>Ali Taghibi Khotbeh-Sara</strong>, Faezeh Rahmani, Farshad Ghasemi — Comprehensive neutronic and thermal-mechanical stress/temperature distribution modeling of high-power electron LINAC targets for reliable clinical-grade $^{99}\text{Mo}$ production.
+          </p>
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs font-mono">
+            <div class="flex flex-wrap gap-2 text-cyan-400">
+              <span>#ElectronLinac</span>
+              <span>#ThermalMechanicalAnalysis</span>
+              <span>#MCNPX</span>
+              <span>#Mo99</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://doi.org/10.22034/rpe.2021.252856.1026" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">DOI: 10.22034/rpe.2021 ↗</a>
+              <a href="https://www.researchgate.net/profile/Ali-Taghibi-Khotbeh-Sara" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">Full Text / RG ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pub 4: Conference Papers (2018 & 2019) on Hybrid Target & Mechanical Design -->
+        <article class="pub-card sci-card rounded-2xl p-6" data-category="mo99">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-sky-500/20 text-sky-300 border border-sky-500/30">
+              Peer-Reviewed Conference Proceedings · 2018 &amp; 2019
+            </span>
+            <span class="font-mono text-xs text-slate-400">ResearchGate Verified Contributions</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">
+            (1) Feasibility study on Mo-99 production using hybrid method based on high power electron accelerator (2019) &amp; (2) Nuclear and Mechanical Basic Design of Target for Mo-99 Production Using High Power Electron LINAC (2018)
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <strong>Ali Taghibi Khotbehsara</strong>, Faezeh Rahmani, Farshad Ghasemi, Ali Torkamani — Foundational studies establishing the geometric, neutronic, and heat-transfer parameters for accelerator-driven radioisotope target assemblies.
+          </p>
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs font-mono">
+            <div class="flex flex-wrap gap-2 text-cyan-400">
+              <span>#TargetEngineering</span>
+              <span>#HybridMethod</span>
+              <span>#HeatTransfer</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="https://www.researchgate.net/profile/Ali-Taghibi-Khotbeh-Sara" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">View on ResearchGate ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pub 5: Labyrinth Shielding, RPP/RPR & Smart Fabric Dosimetry -->
+        <article class="pub-card sci-card rounded-2xl p-6" data-category="shielding">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="px-2.5 py-1 rounded-md text-xs font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+              NCRP 151 Shielding · Smart Fabrics Dosimetry · Nuclear Law (ANENT)
+            </span>
+            <span class="font-mono text-xs text-slate-400">Technical Reports &amp; Collaborative R&amp;D</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mb-2">
+            Industrial Electron Accelerator Labyrinth Shielding (RPP/RPR), Distributed Fiber Optic Dosimetry in Smart Fabrics &amp; International Nuclear Law Frameworks
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+            <strong>Ali Taghibi Khotbehsara</strong> — Engineering methodologies for multi-leg maze radiation streaming (NCRP 151 / IAEA), collaborative project administration on wearable optical-fiber dosimetric textiles, and environmental compliance analysis under international nuclear law.
+          </p>
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-slate-800/80 text-xs font-mono">
+            <div class="flex flex-wrap gap-2 text-cyan-400">
+              <span>#NCRP151</span>
+              <span>#LabyrinthShielding</span>
+              <span>#FiberOpticDosimetry</span>
+              <span>#SmartFabrics</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <a href="#consulting" class="text-sky-400 hover:underline">Open Labyrinth Calculator ↓</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= NEW SECTION: PEOPLE, COLLABORATORS, 'JOIN US' & OPEN RESEARCH MANUAL (NATURE HUMAN BEHAVIOUR STANDARD) ================= -->
+    <section id="manual" class="py-24 lg:py-28 border-t border-cyan-500/25 bg-slate-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="text-3xl font-mono tracking-widest text-sky-400 font-bold mb-4" data-i18n="secManualTag">            
+              My Network
+            </div>
+            <h2 class="text-2xl sm:text-2xl font-extrabold text-gray-500 text-cyan-300" data-i18n="secManualTitle">            
+              Collaborative Network, Mentorship Philosophy &amp; Research Manual
+            </h2>
+          </div>
+          <p class="text-sm text-slate-400 max-w-xl" data-i18n="secManualDesc">
+            Designed in accordance with Nature Human Behaviour's academic website standards—fostering transparency, clear expectations, and open scientific collaboration.
+          </p>
+        </div>
+
+        <!-- Part A: People & Scientific Co-Authors Network -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+          <div class="sci-card rounded-2xl p-4 border-l-4 border-l-cyan-400">
+            <div class="text-2xs font-mono text-cyan-400 uppercase font-bold" data-i18n="collabRole1">Master’s Degree Supervisors</div>
+            <div class="font-bold text-white text-base mt-1" data-i18n="collabName1">Dr. Faezeh Rahmani</div>
+            <div class="text-xs text-slate-400 mt-1 text-justify" data-i18n="collabAff1">Department of Physics, K. N. Toosi University of Technology (Neutronics, Photoneutron &amp; Shielding)</div>            
+            <div class="font-bold text-white text-base mt-1" data-i18n="collabName2">Dr. Farshad Ghasemi</div>
+            <div class="text-xs text-slate-400 mt-1 text-justify" data-i18n="collabAff2">Nuclear Science &amp; Technology Research Institute (High-Power Electron Accelerators &amp; Thermal Hydraulics)</div>
+          </div>
+          <div class="sci-card rounded-2xl p-4 border-l-4 border-l-emerald-400">
+            <div class="text-2xs font-mono text-emerald-400 uppercase font-bold" data-i18n="collabRole2">Collaborators & Co-Authors</div>
+            <div class="font-bold text-white text-base mt-1" data-i18n="collabName3">Dr. Ali Torkamani</div>
+            <div class="text-xs text-slate-400 mt-1 text-justify" data-i18n="collabAff3">Shahid Beheshti University & Moscow Institute of Physics and Technology (MIPT)</div>
+          </div>
+          <div class="sci-card rounded-2xl p-4 border-l-4 border-l-purple-400">
+            <div class="text-2xs font-mono text-purple-400 uppercase font-bold" data-i18n="collabRole4">Interdisciplinary R&D Leadership</div>
+            <div class="font-bold text-white text-base mt-1" data-i18n="collabName4">Dr. Mohsen Shams Soulari</div>
+            <div class="text-xs text-slate-400 mt-1" data-i18n-html="collabAff4">Chief Technology Officer (CTO) at <strong>EGEP (East Green Energy Paya)</strong></div>
+          </div>
+        </div>
+
+        <!-- Part B: Interactive 3-Tab Research Manual, 'Join Us' & EDI Statement -->
+        <div class="sci-card rounded-2xl p-6 sm:p-8 border border-cyan-500/30">
+          <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-4 mb-6">
+            <button type="button" class="manual-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-bold bg-cyan-500 text-slate-950 transition-all" data-manual-tab="join" data-i18n="manTabJoin">
+              1. Join Us &amp; Prospective Collaborators
+            </button>
+            <button type="button" class="manual-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyan-400 transition-all" data-manual-tab="sop" data-i18n="manTabSop">
+              2. Open Research Manual (SOPs &amp; Authorship)
+            </button>
+            <button type="button" class="manual-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyan-400 transition-all" data-manual-tab="edi" data-i18n="manTabEdi">
+              3. Mentorship Philosophy &amp; EDI Statement
+            </button>
+          </div>
+
+          <!-- Tab Content 1: Join Us -->
+          <div id="manual-panel-join" class="manual-panel grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+            <div class="space-y-3">
+              <h3 class="text-lg font-bold text-white" data-i18n="joinHeading">Who We Look For (Students, Postdocs &amp; Industrial Partners)</h3>
+              <p class="leading-relaxed text-slate-300" data-i18n="joinBody">
+                I welcome collaborations with motivated graduate students, researchers, and industrial R&amp;D teams interested in Monte Carlo radiation transport (Geant4-DNA, MCNP6, FLUKA), radiation shielding (NCRP 151), environmental radiolysis modeling, and fiber-optic dosimetry.
+              </p>
+              <div class="text-xs font-mono text-cyan-300 space-y-1 pt-1">
+                <div data-i18n="joinSkill1">• Preferred Skills: C++ / Python, MCNP6 or Geant4-DNA, COMSOL/ANSYS</div>
+                <div data-i18n="joinSkill2">• Workflow Tools: Git version control, Trello agile boards, LaTeX</div>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-2.5">
+              <div class="text-xs font-mono text-emerald-400 font-bold uppercase" data-i18n="joinHowToTitle">HOW TO REACH OUT (FIRST POINT OF CONTACT):</div>
+              <p class="text-xs text-slate-300 leading-relaxed" data-i18n-html="joinHowToBody">
+                Please send an email to <strong>khotbesara@email.kntu.ac.ir</strong> with the subject line <code class="text-cyan-300">[Collaboration / Prospective Trainee - Your Name]</code> including:
+              </p>
+              <ul class="text-xs font-mono text-slate-400 space-y-1">
+                <li data-i18n="joinItem1">1. Updated CV &amp; Academic Transcript (for students)</li>
+                <li data-i18n="joinItem2">2. Brief statement of research interest (1 paragraph)</li>
+                <li data-i18n="joinItem3">3. Sample simulation script, paper, or technical report</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Tab Content 2: Open Research Manual (SOPs & Authorship) -->
+          <div id="manual-panel-sop" class="manual-panel hidden grid grid-cols-1 md:grid-cols-3 gap-5 text-sm text-slate-300">
+            <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-800">
+              <div class="text-xs font-mono text-cyan-400 font-bold mb-1" data-i18n="sop1Title">01 / ONBOARDING &amp; AGILE WORKFLOW</div>
+              <p class="text-xs text-slate-300 leading-relaxed" data-i18n="sop1Body">
+                Every new team member is onboarded onto our shared Trello Kanban roadmap and simulation repository. Weekly 30-minute sprint syncs ensure no researcher gets stuck on geometry debugging or variance-reduction setup.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-800">
+              <div class="text-xs font-mono text-emerald-400 font-bold mb-1" data-i18n="sop2Title">02 / TRANSPARENT AUTHORSHIP POLICY</div>
+              <p class="text-xs text-slate-300 leading-relaxed" data-i18n="sop2Body">
+                Authorship order is established early based on CRediT (Contributor Roles Taxonomy)—recognizing conceptual design, Monte Carlo code development, validation data analysis, and manuscript drafting fairly and transparently.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-800">
+              <div class="text-xs font-mono text-sky-400 font-bold mb-1" data-i18n="sop3Title">03 / OPEN SCIENCE &amp; REPRODUCIBILITY</div>
+              <p class="text-xs text-slate-300 leading-relaxed" data-i18n="sop3Body">
+                All MCNP6, Geant4-DNA, and kinetic solver input decks, random seeds, cross-section libraries, and post-processing scripts are version-documented so every published figure is 100% reproducible.
+              </p>
+            </div>
+          </div>
+
+          <!-- Tab Content 3: Mentorship Philosophy & EDI Statement -->
+          <div id="manual-panel-edi" class="manual-panel hidden grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+            <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-2">
+              <div class="text-xs font-mono text-cyan-400 font-bold uppercase" data-i18n="edi1Title">MENTORSHIP PHILOSOPHY</div>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="edi1Body">
+                Good science thrives on clarity, curiosity, and psychological safety. My approach to mentoring and project leadership emphasizes structured problem decomposition, hands-on training in radiation transport physics, and empowering junior researchers to develop independent scientific identities.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950/90 border border-slate-800 space-y-2">
+              <div class="text-xs font-mono text-emerald-400 font-bold uppercase" data-i18n="edi2Title">EQUALITY, DIVERSITY &amp; INCLUSION (EDI)</div>
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="edi2Body">
+                Interdisciplinary breakthroughs require diverse perspectives across physics, chemical engineering, nuclear medicine, and materials science. We are committed to an inclusive, respectful, and equitable research environment welcoming collaborators regardless of background, gender, or career stage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: INDUSTRIAL CONSULTING & INTERACTIVE SHIELDING CALCULATOR ================= -->
+        <div class="sci-card rounded-2xl p-5 border-t-4 border-t-purple-400">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-mono text-xs font-bold uppercase text-purple-400" data-i18n="kanbanCol3">✦ FUTURE HORIZONS</span>
+            <span class="px-2 py-0.5 rounded-full text-xs font-mono bg-purple-500/20 text-purple-300">2</span>
+          </div>
+          <div class="space-y-3 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="font-bold text-white mb-1" data-i18n="horizon1Title">AI-Accelerated Surrogate Monte Carlo Models</div>
+              <p class="text-slate-400 text-xs" data-i18n="horizon1Body">Coupling neural operators with Geant4-DNA and MCNP6 for instant real-time dose control.</p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="font-bold text-white mb-1" data-i18n="horizon2Title">Next-Gen Microreactor Shielding &amp; Safety</div>
+              <p class="text-slate-400 text-xs" data-i18n="horizon2Body">Compact radiation shielding assessment for helium-cooled nuclear battery systems.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER & VERIFIED CONTACT HUB ================= -->
+  <footer class="relative z-10 border-t border-slate-800 bg-slate-950/90 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <div class="font-extrabold text-lg text-white" data-i18n="footerName">Ali Taghibi Khotbehsara (علی تعقیبی خطبه‌سرا)</div>
+        <div class="text-xs font-mono text-slate-400 mt-1">
+          Applied Physics · Radiation Protection &amp; Monte Carlo Modeling · K. N. Toosi University of Technology
+        </div>
+        <div class="text-xs font-mono text-cyan-400 mt-2">
+          Official Institutional Email: <a href="mailto:khotbesara@email.kntu.ac.ir" class="underline hover:text-emerald-400">khotbesara@email.kntu.ac.ir</a> · ORCID: <a href="https://orcid.org/0000-0001-8429-1850" target="_blank" rel="noopener noreferrer" class="text-lime-400 underline">0000-0001-8429-1850</a>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 text-xs font-mono">
+        <a href="https://scholar.google.com/citations?user=QGdMp1gAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:border-cyan-400 hover:text-cyan-300">Google Scholar ↗</a>
+        <a href="https://www.researchgate.net/profile/Ali-Taghibi-Khotbeh-Sara" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:border-emerald-400 hover:text-emerald-300">ResearchGate ↗</a>
+        <a href="https://orcid.org/0000-0001-8429-1850" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:border-lime-400 hover:text-lime-300">ORCID ↗</a>
+        <a href="https://www.linkedin.com/in/ali-taghibi-khotbehsara" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:border-sky-400 hover:text-sky-300">LinkedIn ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= EXPORT / DOWNLOAD FILES MODAL ================= -->
+  <div id="export-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
+    <div class="sci-card rounded-2xl max-w-lg w-full p-6 border border-cyan-400/50 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+        <h3 class="text-lg font-extrabold text-white flex items-center gap-2">
+          <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          <span>Download Website Source Files</span>
+        </h3>
+        <button id="close-export-modal-btn" type="button" class="text-slate-400 hover:text-white p-1">✕</button>
+      </div>
+
+      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+        Download your complete GitHub Pages–ready website either as a single self-contained <code class="text-cyan-300">index.html</code> file or as separated <code class="text-cyan-300">index.html</code>, <code class="text-emerald-300">styles.css</code>, and <code class="text-sky-300">script.js</code> files:
+      </p>
+
+      <div class="space-y-2.5 font-mono text-xs">
+        <button id="dl-standalone-btn" type="button" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 font-extrabold flex items-center justify-between hover:opacity-95 transition-opacity">
+          <span>1. Download Standalone index.html (All-in-One)</span>
+          <span>⬇ .HTML</span>
+        </button>
+
+        <div class="pt-2 border-t border-slate-800 text-slate-400 text-[11px] uppercase">Or Download Separated Modular Files:</div>
+
+        <button id="dl-clean-html-btn" type="button" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-700 text-cyan-300 hover:border-cyan-400 flex items-center justify-between">
+          <span>2. Modular index.html (Linked to CSS &amp; JS)</span>
+          <span>⬇ index.html</span>
+        </button>
+
+        <button id="dl-css-btn" type="button" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-700 text-emerald-300 hover:border-emerald-400 flex items-center justify-between">
+          <span>3. Stylesheet (styles.css)</span>
+          <span>⬇ styles.css</span>
+        </button>
+
+        <button id="dl-js-btn" type="button" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 border border-slate-700 text-sky-300 hover:border-sky-400 flex items-center justify-between">
+          <span>4. Interactive Scripts (script.js)</span>
+          <span>⬇ script.js</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= APPLICATION JAVASCRIPT ================= -->
+  <script id="custom-script">
+    (function () {
+      'use strict';
+
+      /* -----------------------------------------------------------
+       * 1. BILINGUAL DICTIONARY (EN / FA) WITH FULL RTL SUPPORT
+       * ----------------------------------------------------------- */
+      const i18nData = {
+        en: {
+          brandName: 'Ali Taghibi Khotbehsara',
+          brandSub1: '◾ Researcher',
+          brandSub2: '◾ Applied Physics & Environment',
+          navAbout: 'About Me',
+          navAboutMob: 'About',
+          navResearch: 'Research',
+          navTimeline: 'E & E',
+          navTimelineMob: 'Timeline',
+          navPublications: 'Publications',
+          navManual: 'Networks',
+          navManualMob: 'Manual',
+          navConsulting: 'Consulting',
+          navRoadmap: 'Roadmap',
+          btnExportFiles: 'Export Files',
+          heroBadge: 'RESEARCH INTERFACE ',
+          heroSub1: 'Radiation Protection',
+          heroSub2: 'Monte Carlo Particle Transport',
+          heroSub3: 'Clean-Tech & Medical Isotopes',
+          heroHeadline: 'Bridging Subatomic Monte Carlo Physics with Macro-Scale Environmental & Medical Solutions.',
+          heroBio: 'I implement track-structure radiation physics concepts into practical engineering systems using Monte Carlo simulations—from Geant4-DNA wastewater radiolysis kinetics and MCNP6 heavy-water (D₂O) hybrid target design for ⁹⁹Mo production to industrial electron accelerator labyrinth shielding (NCRP 151) and smart fiber-optic dosimetry.',
+          ctaExplore: 'Explore Research & Simulations',
+          ctaConsulting: 'Industrial Shielding & RPP/RPR',
+          ctaAbout: 'About Me & Profile →',
+          grpSocialLabel: '1. ACADEMIC & PROFESSIONAL PROFILES:',
+          grpOrcidLabel: '2. RESEARCHER ORCID ID:',
+          grpEmailLabel: '3. OFFICIAL ACADEMIC EMAIL (KNTU):',
+          btnCopy: 'Copy',
+          btnSendMail: 'Mail ✉',
+          simMonitorTitle: 'INTERACTIVE MONTE CARLO MONITOR',
+          simTab1: '1. Geant4-DNA Radiolysis',
+          simTab2: '2. MCNP6 ⁹⁹Mo D₂O Target',
+          simTab3: '3. NCRP 151 Labyrinth',
+          simLegendTop: 'e⁻ + H₂O → •OH, e⁻_aq, H•, H₂O₂ → Trace Pollutant Removal',
+          kineticsChartTitle: 'SPECIES & TRACE POLLUTANT KINETICS (fs → ps → ns → µs):',
+          aboutCardName: 'Ali Taghibi Khotbehsara',
+          aboutCardRole: 'Researcher / Applied Physics',
+          aboutSecTag: 'EXECUTIVE BIOGRAPHY & SCIENTIFIC TRAJECTORY',
+          aboutSecTitle: 'Scientific Journey From Subatomic Physics to Industrial Technologies and Clinical Impact',
+          aboutPara1: 'My academic journey began with a B.Sc. in Physics at Damghan University (2011–2015), followed by graduate research in Applied Physics at K. N. Toosi University of Technology (2015–present). Throughout my career, my core scientific mission has been to bridge high-precision Monte Carlo particle transport codes (Geant4-DNA, MCNP6, MCNPX, and FLUKA) with urgent environmental and medical engineering challenges.',
+          aboutPara2: 'In environmental technology, I model the nanoscale radiolysis of water and wastewater under high-energy electron beams (EBWT/EBFGT)—showing how reactive species (•OH, e⁻_aq, H•) mineralize persistent trace micropollutants that conventional treatments fail to remove. In nuclear medicine and radiation protection, I have co-designed heavy-water (D₂O) hybrid targets for accelerator-based Molybdenum-99 (⁹⁹Mo) production, authored NCRP 151 labyrinth shielding and RPP/RPR frameworks, and coordinated interdisciplinary R&D on smart fiber-optic dosimetric fabrics.',
+          eduBox1Title: 'Academic Formation',
+          eduBox1Desc: 'M.Sc. Applied Physics (K. N. Toosi Univ. of Tech) · B.Sc. Physics (Damghan Univ.)',
+          eduBox2Title: 'Simulation Mastery',
+          eduBox2Desc: 'Geant4-DNA · MCNP6 / MCNPX · FLUKA · Coupled Thermal-Mechanical Analysis',
+          eduBox3Title: 'Core Scientific Values',
+          eduBox3Desc: 'Open Reproducible Science · Regulatory Rigor (NCRP/IAEA) · Agile Teamwork',
+          secResearchTag: 'Research Area',
+          secResearchTitle: 'Interconnected Research & Engineering Projects',
+          secResearchDesc: 'Combining nanoscale track-structure Monte Carlo simulations with macro-scale nuclear, thermal-mechanical, and environmental process engineering.',
+          pillar1Title: 'Electron-Beam Wastewater & Flue Gas Treatment (EBWT / EBFGT)',
+          pillar1Body: 'Predictive kinetic modeling of water and municipal/industrial wastewater radiolysis under high-energy electron irradiation. Quantifying primary radical yields (•OH, e⁻_aq, H•), dissolved oxygen scavenging mechanisms, and dose-dependent pH inflection points inside continuous-flow reaction chambers.',
+          pillar2Title: '⁹⁹Mo Medical Radioisotope Production via Heavy-Water (D₂O) Hybrid Targets',
+          pillar2Body: 'Conceptual design, neutronic optimization, and comprehensive thermal-mechanical analysis of a novel hybrid target utilizing heavy water (D₂O) for producing Molybdenum-99 (⁹⁹Mo / ⁹⁹ᵐTc) using high-power electron accelerators—coupling photonuclear (γ,n) and neutron capture (n,γ) pathways without enriched uranium.',
+          pillar3Title: 'Industrial Accelerator Labyrinth Shielding & Radiation Protection (RPP/RPR)',
+          pillar3Body: 'End-to-end radiation protection engineering for low-, medium-, and high-energy industrial electron accelerators.Analytical NCRP 151 and Monte Carlo evaluations of bremsstrahlung X-ray transmission, ozone/skyshine assessment, multi-leg maze radiation streaming, and regulatory RPP/RPR documentation.',
+          pillar4Title: 'Fiber Optic Dosimetry, Smart Fabrics & Emerging Nuclear Horizons',
+          pillar4Body: 'Interdisciplinary R&D and agile project administration in distributed fiber-optic radiation sensors and wearable smart dosimetric fabrics for real-time spatial dose mapping, alongside technical tracking of fourth-generation microreactors, helium-cooled nuclear batteries, and international nuclear law.',
+          secTimelineTag: 'E-Beam & Environment',
+          secTimelineTitle: '1- Evolution of Electron-Beam Wastewater Treatment (1970s–Present)',
+          secTimelineSub: 'Click on each historical milestone node below to inspect the physics, accelerator engineering, and kinetic modeling breakthroughs.',
+          era1Short: 'Pilot Dosimetry',
+          era2Short: 'Industrial Scale-Up',
+          era3Short: 'Hybrid AOP & Textile',
+          era4Short: 'Monte Carlo Dosimetry',
+          era5Short: 'Geant4-DNA Kinetics',
+          secFlueTimelineTitle: '2- Evolution of Electron-Beam Flue Gas Treatment (1970s–Present)',
+          secFlueTimelineSub: 'Click on each historical milestone node below to explore plasma-chemical radical pathways, dry ammonium fertilizer recovery, and multi-pollutant (SO₂ / NOₓ / VOCs / Dioxins) abatement advances.',
+          flueEra1Short: 'JAERI & Ebara Pioneers',
+          flueEra2Short: 'Coal & Steel Pilots',
+          flueEra3Short: 'Chengdu & Pomorzany',
+          flueEra4Short: 'VOCs, Dioxins & Marine',
+          flueEra5Short: 'Multi-Phase MC & Hybrid',
+          tlKeyParamsLabel: 'Key Technical Parameters:',
+          secPubsTitle: 'Publications, Technical Manuscripts <br> &amp; Frameworks',
+          secPubsTag: 'VERIFIED RESEARCH OUTPUTS & SCHOLARLY CONTRIBUTIONS',
+          filterAll: 'All Works',
+          filterMo99: '⁹⁹Mo & MCNP6',
+          filterRadiolysis: 'Geant4-DNA & EBWT',
+          filterShielding: 'Shielding & Dosimetry',
+          secManualTag: 'My Network',
+          secManualTitle: 'Collaborative Network, Mentorship Philosophy & Research Manual',
+          secManualDesc: "Designed in accordance with Nature Human Behaviour's academic website standards—fostering transparency, clear expectations, and open scientific collaboration.",
+          collabRole1: 'Master’s Degree Supervisors',
+          collabName1: 'Dr. Faezeh Rahmani',
+          collabAff1: 'Department of Physics, K. N. Toosi University of Technology (Neutronics, Photoneutron & Shielding)',
+          collabName2: 'Dr. Farshad Ghasemi',
+          collabAff2: 'Nuclear Science & Technology Research Institute (High-Power Electron Accelerators & Thermal Hydraulics)',
+          collabRole2: 'Collaborators & Co-Authors',
+          collabName3: 'Dr. Ali Torkamani',
+          collabAff3: 'Shahid Beheshti University & Moscow Institute of Physics and Technology (MIPT)',
+          collabRole4: 'Interdisciplinary R&D Leadership',
+          collabName4: 'Dr. Mohsen Shams Soulari',
+          collabAff4: 'Chief Technology Officer (CTO) at <strong>EGEP (East Green Energy Paya)</strong>',
+          manTabJoin: '1. Join Us & Prospective Collaborators',
+          manTabSop: '2. Open Research Manual (SOPs & Authorship)',
+          manTabEdi: '3. Mentorship Philosophy & EDI Statement',
+          joinHeading: 'Who We Look For (Students, Postdocs & Industrial Partners)',
+          joinBody: 'I welcome collaborations with motivated graduate students, researchers, and industrial R&D teams interested in Monte Carlo radiation transport (Geant4-DNA, MCNP6, FLUKA), radiation shielding (NCRP 151), environmental radiolysis modeling, and fiber-optic dosimetry.',
+          joinSkill1: '• Preferred Skills: C++ / Python, MCNP6 or Geant4-DNA, COMSOL/ANSYS',
+          joinSkill2: '• Workflow Tools: Git version control, Trello agile boards, LaTeX',
+          joinHowToTitle: 'HOW TO REACH OUT (FIRST POINT OF CONTACT):',
+          joinHowToBody: 'Please send an email to <strong>khotbesara@email.kntu.ac.ir</strong> with the subject line <code class="text-cyan-300">[Collaboration / Prospective Trainee - Your Name]</code> including:',
+          joinItem1: '1. Updated CV & Academic Transcript (for students)',
+          joinItem2: '2. Brief statement of research interest (1 paragraph)',
+          joinItem3: '3. Sample simulation script, paper, or technical report',
+          sop1Title: '01 / ONBOARDING & AGILE WORKFLOW',
+          sop1Body: 'Every new team member is onboarded onto our shared Trello Kanban roadmap and simulation repository. Weekly 30-minute sprint syncs ensure no researcher gets stuck on geometry debugging or variance-reduction setup.',
+          sop2Title: '02 / TRANSPARENT AUTHORSHIP POLICY',
+          sop2Body: 'Authorship order is established early based on CRediT (Contributor Roles Taxonomy)—recognizing conceptual design, Monte Carlo code development, validation data analysis, and manuscript drafting fairly and transparently.',
+          sop3Title: '03 / OPEN SCIENCE & REPRODUCIBILITY',
+          sop3Body: 'All MCNP6, Geant4-DNA, and kinetic solver input decks, random seeds, cross-section libraries, and post-processing scripts are version-documented so every published figure is 100% reproducible.',
+          edi1Title: 'MENTORSHIP PHILOSOPHY',
+          edi1Body: 'Good science thrives on clarity, curiosity, and psychological safety. My approach to mentoring and project leadership emphasizes structured problem decomposition, hands-on training in radiation transport physics, and empowering junior researchers to develop independent scientific identities.',
+          edi2Title: 'EQUALITY, DIVERSITY & INCLUSION (EDI)',
+          edi2Body: 'Interdisciplinary breakthroughs require diverse perspectives across physics, chemical engineering, nuclear medicine, and materials science. We are committed to an inclusive, respectful, and equitable research environment welcoming collaborators regardless of background, gender, or career stage.',
+          kanbanCol3: '✦ FUTURE HORIZONS',
+          horizon1Title: 'AI-Accelerated Surrogate Monte Carlo Models',
+          horizon1Body: 'Coupling neural operators with Geant4-DNA and MCNP6 for instant real-time dose control.',
+          horizon2Title: 'Next-Gen Microreactor Shielding & Safety',
+          horizon2Body: 'Compact radiation shielding assessment for helium-cooled nuclear battery systems.',
+          footerName: 'Ali Taghibi Khotbehsara (علی تعقیبی خطبه‌سرا)'
+        },
+        fa: {
+          brandName: 'علی تعقیبی خطبه‌سرا',
+          brandSub1: '◾ پژوهشگر',
+          brandSub2: '◾ فیزیک کاربردی و محیط‌زیست',
+          navAbout: 'درباره من',
+          navAboutMob: 'درباره من',
+          navResearch: 'پژوهش‌ها',
+          navTimeline: 'پرتو و محیط‌زیست',
+          navTimelineMob: 'تایم‌لاین',
+          navPublications: 'مقالات',
+          navManual: 'شبکه علمی',
+          navManualMob: 'شبکه علمی',
+          navConsulting: 'مشاوره',
+          navRoadmap: 'نقشه راه',
+          btnExportFiles: 'دریافت فایل‌ها',
+          heroBadge: 'درگاه پژوهشی',
+          heroSub1: 'حفاظت پرتوی',
+          heroSub2: 'ترابرد مونت‌کارلوی ذرات',
+          heroSub3: 'فناوری‌های پاک و ایزوتوپ‌های پزشکی',
+          heroHeadline: 'پیوند فیزیک زیر-اتمی مونت‌کارلو با راهکارهای کلان محیط‌زیستی و پزشکی.',
+          heroBio: 'من مفاهیم فیزیک ساختار رد پرتوها را با استفاده از شبیه‌سازی‌های مونت‌کارلو در سیستم‌های مهندسی کاربردی پیاده‌سازی می‌کنم—از سینتیک رادیولیز فاضلاب با Geant4-DNA و طراحی هدف هیبریدی آب سنگین (D₂O) با MCNP6 برای تولید مولیبدن-۹۹ (⁹⁹Mo) تا طراحی حفاظ لابیرنت شتاب‌دهنده‌های الکترونی صنعتی (NCRP 151) و دزیمتری هوشمند فیبر نوری.',
+          ctaExplore: 'مشاهده پژوهش‌ها و شبیه‌سازی‌ها',
+          ctaConsulting: 'حفاظ‌گذاری صنعتی و RPP/RPR',
+          ctaAbout: 'درباره من و پروفایل ←',
+          grpSocialLabel: '۱. پروفایل‌های علمی و حرفه‌ای:',
+          grpOrcidLabel: '۲. شناسه پژوهشگر (ORCID):',
+          grpEmailLabel: '۳. ایمیل رسمی دانشگاهی (KNTU):',
+          btnCopy: 'کپی',
+          btnSendMail: 'ایمیل ✉',
+          simMonitorTitle: 'مانیتور تعاملی شبیه‌سازی مونت‌کارلو',
+          simTab1: '۱. رادیولیز Geant4-DNA',
+          simTab2: '۲. هدف ⁹⁹Mo D₂O با MCNP6',
+          simTab3: '۳. لابیرنت NCRP 151',
+          simLegendTop: 'e⁻ + H₂O → •OH, e⁻_aq, H•, H₂O₂ → حذف آلاینده‌های با غلظت کم',
+          kineticsChartTitle: 'سینتیک گونه‌ها و ریزآلاینده‌ها (fs → ps → ns → µs):',
+          aboutCardName: 'علی تعقیبی خطبه‌سرا',
+          aboutCardRole: 'پژوهشگر / فیزیک کاربردی',
+          aboutSecTag: 'بیوگرافی علمی و مسیر پژوهشی',
+          aboutSecTitle: 'مسیر علمی از فیزیک زیر-اتمی تا فناوری‌های صنعتی و کاربردهای بالینی',
+          aboutPara1: 'مسیر دانشگاهی من با دوره کارشناسی فیزیک در دانشگاه دامغان (۱۳۹۰–۱۳۹۴) آغاز شد و با پژوهش‌های تحصیلات تکمیلی در رشته فیزیک کاربردی در دانشگاه صنعتی خواجه نصیرالدین طوسی (۱۳۹۴–۱۳۹٦) ادامه یافت. در طول فعالیت علمی‌ام، مأموریت اصلی من پیوند دادن کدهای دقیق شبیه‌سازی مونت‌کارلو ترابرد ذرات (Geant4-DNA، MCNP6، MCNPX و FLUKA) با چالش‌های کلیدی مهندسی محیط‌زیست و پزشکی بوده است.',
+          aboutPara2: 'در حوزه فناوری‌های محیط‌زیستی، رادیولیز نانومقیاس آب و فاضلاب تحت تابش باریکه‌های الکترونی پرانرژی (EBWT/EBFGT) را مدل‌سازی می‌کنم تا نشان دهم گونه‌های فعال رادیکالی (•OH، e⁻_aq، H•) چگونه ریزآلاینده‌های پایدار با غلظت بسیار کم را که روش‌های متداول قادر به حذف آن‌ها نیستند، معدنی و تخریب می‌کنند. در حوزه پزشکی هسته‌ای و حفاظت پرتوی نیز در طراحی هدف‌های هیبریدی آب سنگین (D₂O) برای تولید مولیبدن-۹۹ (⁹⁹Mo) مبتنی بر شتاب‌دهنده، تدوین چارچوب‌های حفاظ لابیرنت NCRP 151 و گزارش‌های RPP/RPR و راهبری پژوهش‌های میان‌رشته‌ای منسوجات هوشمند دزیمتری فیبر نوری مشارکت داشته‌ام.',
+          eduBox1Title: 'پیشینه دانشگاهی',
+          eduBox1Desc: 'کارشناسی ارشد فیزیک کاربردی (دانشگاه صنعتی خواجه نصیرالدین طوسی) · کارشناسی فیزیک (دانشگاه دامغان)',
+          eduBox2Title: 'تسلط بر شبیه‌سازی',
+          eduBox2Desc: 'Geant4-DNA · MCNP6 / MCNPX · FLUKA · تحلیل‌های کوپل حرارتی-مکانیکی',
+          eduBox3Title: 'ارزش‌های محوری علمی',
+          eduBox3Desc: 'علم باز و تکرارپذیر · دقت استانداردهای حفاظتی (NCRP/IAEA) · کار تیمی چابک',
+          secResearchTag: 'حوزه پژوهشی',
+          secResearchTitle: 'پروژه‌های به هم پیوسته پژوهشی و مهندسی',
+          secResearchDesc: 'تلفیق شبیه‌سازی‌های مونت‌کارلو ساختار رد در مقیاس نانو با مهندسی فرآیندهای هسته‌ای، حرارتی-مکانیکی و محیط‌زیستی در مقیاس کلان.',
+          pillar1Title: 'تصفیه فاضلاب و گازهای خروجی با باریکه الکترونی (EBWT / EBFGT)',
+          pillar1Body: 'مدل‌سازی سینتیک پیش‌بینانه رادیولیز آب و فاضلاب شهری/صنعتی تحت تابش الکترون‌های پرانرژی؛ کمّی‌سازی بهره تولید رادیکال‌های اولیه (•OH، e⁻_aq و H•)، مکانیسم‌های به دام‌اندازی اکسیژن محلول و نقاط عطف تغییرات pH وابسته به دز در اتاقک‌های واکنش جریان پیوسته.',
+          pillar2Title: 'تولید رادیوایزوتوپ پزشکی ⁹⁹Mo با هدف‌های هیبریدی آب سنگین (D₂O)',
+          pillar2Body: 'طراحی مفهومی، بهینه‌سازی نوترونیک و تحلیل جامع حرارتی-مکانیکی هدف هیبریدی نوین مبتنی بر آب سنگین (D₂O) برای تولید مولیبدن-۹۹ (⁹⁹Mo / ⁹⁹ᵐTc) با شتاب‌دهنده‌های الکترونی پرقدرت—از طریق کوپل مسیرهای فوتوهسته‌ای (γ,n) و گیراندازی نوترون (n,γ) بدون نیاز به اورانیوم غنی‌شده.',
+          pillar3Title: 'حفاظ لابیرنت شتاب‌دهنده‌های صنعتی و حفاظت پرتوی (RPP/RPR)',
+          pillar3Body: 'مهندسی جامع حفاظت پرتوی برای شتاب‌دهنده‌های الکترونی صنعتی کم‌انرژی، میان‌انرژی و پرانرژی؛ ارزیابی‌های تحلیلی NCRP 151 و مونت‌کارلوی تراگسیل پرتوهای ایکس ترمزی (Bremsstrahlung)، تولید ازن و پرتوهای پراکنده هوا (Skyshine)، نشت پرتو در لابیرنت‌های چندخم و تدوین مستندات قانونی RPP/RPR.',
+          pillar4Title: 'دزیمتری فیبر نوری، منسوجات هوشمند و افق‌های نوین هسته‌ای',
+          pillar4Body: 'پژوهش و مدیریت چابک پروژه در زمینه حسگرهای پرتوی توزیع‌شده فیبر نوری و منسوجات هوشمند پوشیدنی برای نقشه‌برداری مکانی زنده دز، به همراه رصد فنی راکتورهای کوچک نسل چهارم (Microreactors)، باتری‌های هسته‌ای خنک‌شونده با هلیوم و حقوق بین‌الملل هسته‌ای.',
+          secTimelineTag: 'باریکه الکترونی و محیط‌زیست',
+          secTimelineTitle: '۱- سیر تحول تصفیه فاضلاب با باریکه الکترونی (از دهه ۱۹۷۰ تا کنون)',
+          secTimelineSub: 'روی هر یک از دوره‌های زمانی زیر کلیک کنید تا جزئیات فیزیکی، مهندسی شتاب‌دهنده و پیشرفت‌های مدل‌سازی سینتیکی آن دوره نمایش داده شود.',
+          era1Short: 'دزیمتری پایلوت اولیه',
+          era2Short: 'ارتقا به مقیاس صنعتی',
+          era3Short: 'فرآیند هیبریدی و نساجی',
+          era4Short: 'دزیمتری مونت‌کارلو',
+          era5Short: 'سینتیک Geant4-DNA',
+          secFlueTimelineTitle: '۲- سیر تحول تصفیه گازهای خروجی دودکش با باریکه الکترونی (از دهه ۱۹۷۰ تا کنون)',
+          secFlueTimelineSub: 'روی هر یک از دوره‌های زمانی زیر کلیک کنید تا مسیرهای رادیکالی پلاسما-شیمیایی، بازیافت کود آمونیوم خشک و پیشرفت‌های حذف هم‌زمان آلاینده‌های گازی (SO₂ / NOₓ / VOCs / دی‌اکسین) نمایش داده شود.',
+          flueEra1Short: 'پیشگامان JAERI و Ebara',
+          flueEra2Short: 'پایلوت‌های زغال‌سنگ و فولاد',
+          flueEra3Short: 'واحدهای چنگدو و پومورزانی',
+          flueEra4Short: 'حذف VOC، دی‌اکسین و دریایی',
+          flueEra5Short: 'مدل‌سازی چندفازی و هیبریدی',
+          tlKeyParamsLabel: 'پارامترهای فنی کلیدی:',
+          secPubsTitle: 'مقالات، دست‌نوشته‌های فنی <br> و چارچوب‌های مهندسی',
+          secPubsTag: 'بروندادهای پژوهشی و مشارکت‌های علمی ثبت‌شده',
+          filterAll: 'همه آثار',
+          filterMo99: 'تولید ⁹⁹Mo و MCNP6',
+          filterRadiolysis: 'Geant4-DNA و EBWT',
+          filterShielding: 'حفاظت پرتوی و دزیمتری',
+          secManualTag: 'شبکه علمی من',
+          secManualTitle: 'شبکه همکاران علمی، فلسفه مربی‌گری و شیوه‌نامه پژوهشی',
+          secManualDesc: 'طراحی‌شده بر اساس استانداردهای وب‌سایت‌های دانشگاهی مجله Nature Human Behaviour—در راستای شفافیت، انتظارات روشن و همکاری‌های علمی باز.',
+          collabRole1: 'اساتید راهنمای دوره کارشناسی ارشد',
+          collabName1: 'دکتر فائزه رحمانی',
+          collabAff1: 'دانشکده فیزیک، دانشگاه صنعتی خواجه نصیرالدین طوسی (نوترونیک، فوتونوترون و حفاظت پرتوی)',
+          collabName2: 'دکتر فرشاد قاسمی',
+          collabAff2: 'پژوهشگاه علوم و فنون هسته‌ای (شتاب‌دهنده‌های الکترونی پرقدرت و ترموهیدرولیک)',
+          collabRole2: 'همکاران علمی و هم‌نویسندگان',
+          collabName3: 'دکتر علی ترکمانی',
+          collabAff3: 'دانشگاه شهید بهشتی و مؤسسه فیزیک و فناوری مسکو (MIPT)',
+          collabRole4: 'راهبری تحقیق و توسعه میان‌رشته‌ای',
+          collabName4: 'دکتر محسن شمس سولاری',
+          collabAff4: 'مدیر ارشد فناوری (CTO) در <strong>شرکت انرژی سبز پایا شرق (EGEP)</strong>',
+          manTabJoin: '۱. پیوستن به ما و همکاران آینده',
+          manTabSop: '۲. شیوه‌نامه باز پژوهشی (SOPs و نویسندگی)',
+          manTabEdi: '۳. فلسفه مربی‌گری و بیانیه EDI',
+          joinHeading: 'چه کسانی را جذب می‌کنیم (دانشجویان، پسادکتری و شرکای صنعتی)',
+          joinBody: 'از همکاری با دانشجویان تحصیلات تکمیلی باانگیزه، پژوهشگران و تیم‌های تحقیق و توسعه صنعتی علاقه‌مند به ترابرد مونت‌کارلوی پرتوها (Geant4-DNA، MCNP6، FLUKA)، طراحی حفاظ پرتوی (NCRP 151)، مدل‌سازی رادیولیز محیط‌زیستی و دزیمتری فیبر نوری استقبال می‌کنم.',
+          joinSkill1: '• مهارت‌های ترجیحی: C++ / Python، کدهای MCNP6 یا Geant4-DNA، نرم‌افزارهای COMSOL/ANSYS',
+          joinSkill2: '• ابزارهای گردش کار: کنترل نسخه Git، بوردهای چابک Trello، حروف‌چینی LaTeX',
+          joinHowToTitle: 'نحوه ارتباط اولیه (نقطه تماس اول):',
+          joinHowToBody: 'لطفاً یک ایمیل به <strong>khotbesara@email.kntu.ac.ir</strong> با عنوان <code class="text-cyan-300">[Collaboration / Prospective Trainee - Your Name]</code> همراه با موارد زیر ارسال فرمایید:',
+          joinItem1: '۱. رزومه (CV) به‌روز و ریزنمرات تحصیلی (برای دانشجویان)',
+          joinItem2: '۲. شرح کوتاه علاقه‌مندی پژوهشی (یک پاراگراف)',
+          joinItem3: '۳. نمونه اسکریپت شبیه‌سازی، مقاله یا گزارش فنی',
+          sop1Title: '۰۱ / پذیرش اولیه و گردش کار چابک',
+          sop1Body: 'هر عضو جدید در نقشه راه مشترک Kanban در Trello و مخزن کدهای شبیه‌سازی پذیرش می‌شود. جلسات هماهنگی هفتگی ۳۰ دقیقه‌ای تضمین می‌کند که هیچ پژوهشگری در خطایابی هندسه یا تنظیمات کاهش واریانس متوقف نماند.',
+          sop2Title: '۰۲ / سیاست شفاف نویسندگی مقالات',
+          sop2Body: 'ترتیب نویسندگان از ابتدا بر پایه استاندارد CRediT تعیین می‌شود تا طراحی مفهومی، توسعه کد مونت‌کارلو، تحلیل داده‌های اعتبارسنجی و نگارش مقاله به‌صورت منصفانه و شفاف ارج نهاده شود.',
+          sop3Title: '۰۳ / علم باز و تکرارپذیری کامل',
+          sop3Body: 'تمامی فایل‌های ورودی MCNP6، Geant4-DNA و حل‌گرهای سینتیکی، بذرهای اعداد تصادفی، کتابخانه‌های سطح مقطع و اسکریپت‌های پس‌پردازش مستندسازی می‌شوند تا هر نمودار منتشرشده ۱۰۰٪ تکرارپذیر باشد.',
+          edi1Title: 'فلسفه مربی‌گری و راهبری علمی',
+          edi1Body: 'علم پیشرو در بستر شفافیت، کنجکاوی و امنیت روانی رشد می‌کند. رویکرد من در راهنمایی و مدیریت پروژه بر تجزیه ساختاریافته مسائل، آموزش عملی فیزیک ترابرد پرتوها و توانمندسازی پژوهشگران جوان برای شکل‌دهی هویت علمی مستقل استوار است.',
+          edi2Title: 'برابری، تنوع و شمول‌پذیری (EDI)',
+          edi2Body: 'دستاوردهای میان‌رشته‌ای نیازمند دیدگاه‌های متنوع در تلاقی فیزیک، مهندسی شیمی، پزشکی هسته‌ای و علم مواد است. ما متعهد به محیطی محترمانه، برابر و پذیرا برای تمامی همکاران علمی فارغ از پیشینه، جنسیت یا مرحله شغلی هستیم.',
+          kanbanCol3: '✦ افق‌های پژوهشی آینده',
+          horizon1Title: 'مدل‌های جایگزین مونت‌کارلو شتاب‌یافته با هوش مصنوعی',
+          horizon1Body: 'کوپل عملگرهای عصبی (Neural Operators) با Geant4-DNA و MCNP6 برای کنترل بلادرنگ و آنی دز پرتودهی.',
+          horizon2Title: 'ایمنی و حفاظ پرتوی میکروراکتورهای نسل آینده',
+          horizon2Body: 'ارزیابی حفاظ پرتوی فشرده برای سامانه‌های باتری هسته‌ای خنک‌شونده با گاز هلیوم.',
+          footerName: 'علی تعقیبی خطبه‌سرا (Ali Taghibi Khotbehsara)'
+        }
+      };
+
+      let currentLang = 'en';
+
+      // Snapshot original English DOM strings on load so switching FA -> EN always restores exact initial English DOM
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (key) i18nData.en[key] = el.textContent;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-html');
+        if (key) i18nData.en[key] = el.innerHTML;
+      });
+
+      /* -----------------------------------------------------------
+       * 2. NAVBAR ACTIVE STATE & SMOOTH SCROLL HIGHLIGHTING
+       * ----------------------------------------------------------- */
+      const navLinks = document.querySelectorAll('.nav-item-link');
+      navLinks.forEach((link) => {
+        link.addEventListener('click', function () {
+          const targetKey = this.getAttribute('data-nav');
+          navLinks.forEach((l) => {
+            if (l.getAttribute('data-nav') === targetKey) {
+              l.classList.add('active');
+            } else {
+              l.classList.remove('active');
+            }
+          });
+        });
+      });
+
+      /* -----------------------------------------------------------
+       * 3. LANGUAGE & THEME TOGGLES
+       * ----------------------------------------------------------- */
+      const langToggleBtn = document.getElementById('lang-toggle-btn');
+      const langIndEn = document.getElementById('lang-ind-en');
+      const langIndFa = document.getElementById('lang-ind-fa');
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        const htmlEl = document.documentElement;
+        htmlEl.setAttribute('lang', lang);
+        htmlEl.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+
+        if (lang === 'fa') {
+          langIndFa.className = 'text-cyan-400 font-bold';
+          langIndEn.className = 'text-slate-400';
+        } else {
+          langIndEn.className = 'text-cyan-400 font-bold';
+          langIndFa.className = 'text-slate-400';
+        }
+
+        const dict = i18nData[lang];
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (dict[key]) el.textContent = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+          const key = el.getAttribute('data-i18n-html');
+          if (dict[key]) el.innerHTML = dict[key];
+        });
+        if (typeof updateEbwtTimelineDisplay === 'function') {
+          updateEbwtTimelineDisplay(activeEbwtEra);
+        }
+        if (typeof updateEbfgtTimelineDisplay === 'function') {
+          updateEbfgtTimelineDisplay(activeEbfgtEra);
+        }
+        if (typeof updateSimMetrics === 'function') {
+          updateSimMetrics();
+        }
+      }
+
+      if (langToggleBtn) {
+        langToggleBtn.addEventListener('click', () => {
+          applyLanguage(currentLang === 'en' ? 'fa' : 'en');
+        });
+      }
+
+      // Theme Toggle
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          const htmlEl = document.documentElement;
+          htmlEl.classList.toggle('dark');
+          const isDark = htmlEl.classList.contains('dark');
+          sunIcon.classList.toggle('hidden', isDark);
+          moonIcon.classList.toggle('hidden', !isDark);
+        });
+      }
+
+      /* -----------------------------------------------------------
+       * 4. COPY INSTITUTIONAL EMAIL BUTTON
+       * ----------------------------------------------------------- */
+      const copyEmailBtn = document.getElementById('copy-email-hero-btn');
+      const copyBadge = document.getElementById('copy-email-badge');
+      if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', () => {
+          const tempInput = document.createElement('textarea');
+          tempInput.value = 'khotbesara@email.kntu.ac.ir';
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+
+          if (copyBadge) {
+            const orig = copyBadge.textContent;
+            copyBadge.textContent = currentLang === 'fa' ? 'کپی شد ✓' : 'Copied ✓';
+            setTimeout(() => {
+              copyBadge.textContent = orig;
+            }, 2000);
+          }
+        });
+      }
+
+      /* -----------------------------------------------------------
+       * 5. INTERACTIVE HERO 3-MODE MONTE CARLO SIMULATION MONITOR
+       *    + TRANSIENT CHEMICAL SYMBOLS + MULTI-TIMESCALE KINETIC CHART
+       * ----------------------------------------------------------- */
+      const simCanvas = document.getElementById('hero-sim-canvas');
+      const simCtx = simCanvas ? simCanvas.getContext('2d') : null;
+      const kinCanvas = document.getElementById('hero-kinetics-canvas');
+      const kinCtx = kinCanvas ? kinCanvas.getContext('2d') : null;
+      const kinContainer = document.getElementById('kinetics-chart-container');
+      const kinTimeReadout = document.getElementById('kinetics-time-readout');
+      const pollutantBadge = document.getElementById('pollutant-removed-badge');
+
+      const simTabBtns = document.querySelectorAll('.sim-tab-btn');
+      const simSlider = document.getElementById('sim-param-slider');
+      const simSliderLabel = document.getElementById('sim-slider-label');
+      const simSliderValue = document.getElementById('sim-slider-value');
+      const simCodeTag = document.getElementById('sim-code-tag');
+      const simCaption = document.getElementById('sim-canvas-caption');
+
+      const m1Label = document.getElementById('sim-metric-1-label');
+      const m1Val = document.getElementById('sim-metric-1-val');
+      const m2Label = document.getElementById('sim-metric-2-label');
+      const m2Val = document.getElementById('sim-metric-2-val');
+      const m3Label = document.getElementById('sim-metric-3-label');
+      const m3Val = document.getElementById('sim-metric-3-val');
+
+      let activeSimMode = 'radiolysis';
+      let simParam = 15;
+      let animTick = 0;
+
+      // Radiolysis Multi-Stage Entities: Water molecules, Primary Electrons, Generated Radicals, Trace Pollutants, Transient Labels
+      let waterMolecules = [];
+      let tracePollutants = [];
+      let primaryElectrons = [];
+      let spawnedRadicals = [];
+      let transientLabels = [];
+
+      function initRadiolysisEntities(w, h) {
+        waterMolecules = Array.from({ length: 14 }, (_, idx) => ({
+          x: w * 0.24 + (idx % 4) * (w * 0.14) + (Math.random() * 16 - 8),
+          y: h * 0.18 + Math.floor(idx / 4) * (h * 0.24) + (Math.random() * 14 - 7),
+          r: 4.2,
+          hitCooldown: 0
+        }));
+
+        tracePollutants = Array.from({ length: 7 }, (_, idx) => ({
+          x: w * 0.66 + (idx % 2) * (w * 0.16) + (Math.random() * 14 - 7),
+          y: h * 0.16 + idx * (h * 0.115),
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
+          r: 6,
+          state: 'contaminant', // 'contaminant' | 'mineralized'
+          flashTimer: 0,
+          symbol: idx % 2 === 0 ? 'Pollutant (ng/L)' : 'Micropollutant'
+        }));
+
+        primaryElectrons = [];
+        spawnedRadicals = [];
+        transientLabels = [];
+      }
+
+      function spawnTransientLabel(x, y, text, color) {
+        if (transientLabels.length > 9) return; // keep HUD clean and readable
+        transientLabels.push({
+          x,
+          y,
+          text,
+          color,
+          life: 0,
+          maxLife: 78 // ~1.3 seconds at 60fps (fade in and fade out)
+        });
+      }
+
+      function resizeSimCanvas() {
+        if (!simCanvas) return;
+        const rect = simCanvas.parentElement.getBoundingClientRect();
+        simCanvas.width = rect.width || 460;
+        simCanvas.height = rect.height || 240;
+        initRadiolysisEntities(simCanvas.width, simCanvas.height);
+
+        if (kinCanvas && kinCanvas.parentElement) {
+          const kRect = kinCanvas.parentElement.getBoundingClientRect();
+          kinCanvas.width = kRect.width || 440;
+          kinCanvas.height = kRect.height || 110;
+        }
+      }
+      window.addEventListener('resize', resizeSimCanvas);
+      resizeSimCanvas();
+
+      function updateSimMetrics() {
+        const val = Number(simSlider.value);
+        simParam = val;
+
+        if (activeSimMode === 'radiolysis') {
+          if (kinContainer) kinContainer.style.display = 'block';
+          simCodeTag.textContent = 'Geant4-DNA · Track-Structure';
+          simCaption.textContent = 'e⁻ Beam → H₂O Radiolysis → Trace Micropollutant Mineralization';
+          simSliderLabel.textContent = currentLang === 'fa' ? 'دز جذبی باریکه الکترونی:' : 'Electron Beam Absorbed Dose:';
+          simSliderValue.textContent = val + ' kGy';
+          m1Label.textContent = '•OH / e⁻_aq Yield';
+          m1Val.textContent = (2.75 + val * 0.012).toFixed(2) + ' µM/J';
+          m2Label.textContent = 'pH Inflection';
+          const ph = Math.max(4.85, (7.1 - Math.log10(val + 1) * 0.85)).toFixed(2);
+          m2Val.textContent = 'pH ' + ph;
+          m3Label.textContent = 'Trace Pollutant';
+          const rem = Math.min(99.9, (78 + val * 0.44)).toFixed(1);
+          m3Val.textContent = '-' + rem + '% Rem.';
+          if (pollutantBadge) pollutantBadge.textContent = `Trace Eliminated: ${rem}%`;
+        } else if (activeSimMode === 'mo99') {
+          if (kinContainer) kinContainer.style.display = 'none';
+          simCodeTag.textContent = 'MCNP6 · D₂O Hybrid Target';
+          simCaption.textContent = 'e⁻ → Bremsstrahlung γ → D₂O (γ,n) + ⁹⁸Mo(n,γ)⁹⁹Mo';
+          simSliderLabel.textContent = currentLang === 'fa' ? 'توان باریکه شتاب‌دهنده الکترونی:' : 'Accelerator Electron Beam Power:';
+          const kw = val * 2;
+          simSliderValue.textContent = kw + ' kW';
+          m1Label.textContent = '⁹⁹Mo Yield';
+          m1Val.textContent = (kw * 1.45).toFixed(1) + ' Ci/day';
+          m2Label.textContent = 'Peak Target Temp';
+          m2Val.textContent = Math.round(185 + kw * 3.8) + ' °C';
+          m3Label.textContent = 'D₂O Flux Gain';
+          m3Val.textContent = '+' + (34 + val * 0.6).toFixed(1) + '%';
+        } else if (activeSimMode === 'labyrinth') {
+          if (kinContainer) kinContainer.style.display = 'none';
+          simCodeTag.textContent = 'NCRP 151 · Maze Streaming';
+          simCaption.textContent = 'Vault Bremsstrahlung & Multi-Leg Maze Attenuation';
+          simSliderLabel.textContent = currentLang === 'fa' ? 'ضخامت دیوار حفاظ بتنی:' : 'Shielding Wall Concrete Thickness:';
+          const cm = 100 + val * 4;
+          simSliderValue.textContent = cm + ' cm';
+          m1Label.textContent = 'Door Dose Rate';
+          const dose = Math.max(0.12, (28 * Math.exp(-cm / 68))).toFixed(2);
+          m1Val.textContent = dose + ' µSv/h';
+          m2Label.textContent = 'TVL Attenuation';
+          m2Val.textContent = (cm / 38).toFixed(1) + ' TVLs';
+          m3Label.textContent = 'Safety Status';
+          m3Val.textContent = dose < 2.5 ? 'COMPLIANT' : 'REVIEW';
+        }
+      }
+
+      simTabBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          simTabBtns.forEach((b) => b.classList.remove('active'));
+          this.classList.add('active');
+          activeSimMode = this.getAttribute('data-sim-mode');
+          updateSimMetrics();
+        });
+      });
+
+      if (simSlider) {
+        simSlider.addEventListener('input', updateSimMetrics);
+      }
+
+      // Render Dynamic Multi-Timescale Concentration Chart (fs -> ps -> ns -> µs)
+      function renderKineticsChart(w, h) {
+        if (!kinCtx) return;
+        kinCtx.clearRect(0, 0, w, h);
+
+        const padL = 30;
+        const padR = 14;
+        const padT = 10;
+        const padB = 20;
+        const plotW = w - padL - padR;
+        const plotH = h - padT - padB;
+
+        // Axes
+        kinCtx.strokeStyle = 'rgba(148, 163, 184, 0.25)';
+        kinCtx.lineWidth = 1;
+        kinCtx.beginPath();
+        kinCtx.moveTo(padL, padT);
+        kinCtx.lineTo(padL, padT + plotH);
+        kinCtx.lineTo(padL + plotW, padT + plotH);
+        kinCtx.stroke();
+
+        // 4 Logarithmic Time Regime Dividers: fs (10^-15 s), ps (10^-12 s), ns (10^-9 s), µs (10^-6 s)
+        const regimes = [
+          { xFrac: 0.0, label: '10⁻¹⁵s (fs)' },
+          { xFrac: 0.33, label: '10⁻¹²s (ps)' },
+          { xFrac: 0.66, label: '10⁻⁹s (ns)' },
+          { xFrac: 0.96, label: '10⁻⁶s (µs)' }
+        ];
+
+        kinCtx.font = '10px "JetBrains Mono", monospace';
+        kinCtx.fillStyle = '#94A3B8';
+        regimes.forEach((reg) => {
+          const rx = padL + reg.xFrac * plotW;
+          kinCtx.strokeStyle = 'rgba(0, 210, 255, 0.12)';
+          kinCtx.beginPath();
+          kinCtx.moveTo(rx, padT);
+          kinCtx.lineTo(rx, padT + plotH);
+          kinCtx.stroke();
+          kinCtx.fillText(reg.label, Math.min(w - 62, Math.max(4, rx - 14)), h - 5);
+        });
+
+        // Parametric kinetic concentration functions for 0 <= s <= 1 (spanning fs -> ps -> ns -> µs)
+        const doseFactor = Math.min(1.25, 0.75 + simParam / 100);
+        function getOH(s) {
+          // Rises sharply in fs->ps (s: 0->0.28), plateaus, then decays in ns->µs as it reacts with pollutants
+          if (s < 0.25) return Math.pow(s / 0.25, 1.3) * 0.92 * doseFactor;
+          return 0.92 * doseFactor * Math.exp(-(s - 0.25) * 1.15);
+        }
+        function getEaq(s) {
+          // Hydrates around ps (s: 0.15->0.35), then scavenged by O2 and trace pollutants in ns->µs
+          if (s < 0.12) return (s / 0.12) * 0.25;
+          if (s < 0.32) return (0.25 + ((s - 0.12) / 0.2) * 0.58) * doseFactor;
+          return 0.83 * doseFactor * Math.exp(-(s - 0.32) * 1.45);
+        }
+        function getH2O2(s) {
+          // Forms via spur recombination in ps->ns and stabilizes
+          return Math.min(0.68, 0.08 + 0.52 * (1 - Math.exp(-Math.max(0, s - 0.2) * 4.2)) * doseFactor);
+        }
+        function getPollutant(s) {
+          // Trace micropollutant C/C0 starts at 0.90 and drops sharply in ns->µs regime due to •OH & e-_aq attack!
+          if (s < 0.48) return 0.9;
+          const decayRate = 3.2 + (simParam / 25);
+          return Math.max(0.04, 0.9 * Math.exp(-(s - 0.48) * decayRate));
+        }
+
+        // Sweeping real-time cursor progress (cycles smoothly 0 -> 1)
+        const sweepProgress = (animTick * 0.08) % 1;
+
+        function drawCurve(fn, color, lineWidth) {
+          kinCtx.strokeStyle = color;
+          kinCtx.lineWidth = lineWidth;
+          kinCtx.beginPath();
+          const steps = 60;
+          for (let i = 0; i <= steps; i++) {
+            const s = i / steps;
+            const x = padL + s * plotW;
+            const y = padT + plotH - Math.min(0.96, fn(s)) * plotH;
+            if (i === 0) kinCtx.moveTo(x, y);
+            else kinCtx.lineTo(x, y);
+          }
+          kinCtx.stroke();
+
+          // Draw live dot at current sweepProgress
+          const cx = padL + sweepProgress * plotW;
+          const cy = padT + plotH - Math.min(0.96, fn(sweepProgress)) * plotH;
+          kinCtx.beginPath();
+          kinCtx.arc(cx, cy, 3.2, 0, Math.PI * 2);
+          kinCtx.fillStyle = color;
+          kinCtx.fill();
+        }
+
+        drawCurve(getOH, '#00D2FF', 2);        // •OH Radical (Cyan)
+        drawCurve(getEaq, '#818CF8', 1.8);     // e-_aq (Indigo)
+        drawCurve(getH2O2, '#F59E0B', 1.6);    // H2O2 (Amber)
+        drawCurve(getPollutant, '#FB7185', 2.2); // Trace Pollutant (Rose dropping to zero)
+
+        // Draw sweeping vertical time indicator line
+        const cursorX = padL + sweepProgress * plotW;
+        kinCtx.strokeStyle = 'rgba(16, 185, 129, 0.7)';
+        kinCtx.setLineDash([3, 3]);
+        kinCtx.beginPath();
+        kinCtx.moveTo(cursorX, padT);
+        kinCtx.lineTo(cursorX, padT + plotH);
+        kinCtx.stroke();
+        kinCtx.setLineDash([]);
+
+        // Update time regime readout badge
+        if (kinTimeReadout) {
+          if (sweepProgress < 0.28) {
+            kinTimeReadout.textContent = 't ~ 10⁻¹⁵–10⁻¹³ s (fs · H₂O Ionization)';
+          } else if (sweepProgress < 0.55) {
+            kinTimeReadout.textContent = 't ~ 10⁻¹² s (ps · •OH & e⁻_aq Formation)';
+          } else if (sweepProgress < 0.78) {
+            kinTimeReadout.textContent = 't ~ 10⁻⁹ s (ns · Spur Diffusion & H₂O₂)';
+          } else {
+            kinTimeReadout.textContent = 't ~ 10⁻⁶ s (µs · Trace Pollutant Elimination ✓)';
+          }
+        }
+      }
+
+      function renderSimMonitor() {
+        if (!simCtx || !simCanvas) return;
+        const w = simCanvas.width;
+        const h = simCanvas.height;
+        animTick += 0.04;
+
+        simCtx.clearRect(0, 0, w, h);
+
+        // Subtle Scientific Grid
+        simCtx.strokeStyle = 'rgba(0, 210, 255, 0.06)';
+        simCtx.lineWidth = 1;
+        for (let x = 0; x < w; x += 28) {
+          simCtx.beginPath();
+          simCtx.moveTo(x, 0);
+          simCtx.lineTo(x, h);
+          simCtx.stroke();
+        }
+        for (let y = 0; y < h; y += 28) {
+          simCtx.beginPath();
+          simCtx.moveTo(0, y);
+          simCtx.lineTo(w, y);
+          simCtx.stroke();
+        }
+
+        if (activeSimMode === 'radiolysis') {
+          // 1. Spawn Primary Electrons (e⁻) from left beam window
+          if (Math.random() < 0.16 + simParam * 0.004 && primaryElectrons.length < 14) {
+            const eY = h * 0.5 + (Math.random() - 0.5) * 26;
+            const newE = {
+              x: 16,
+              y: eY,
+              vx: 3.4 + Math.random() * 1.4,
+              vy: (Math.random() - 0.5) * 1.6,
+              active: true
+            };
+            primaryElectrons.push(newE);
+            if (Math.random() < 0.35) {
+              spawnTransientLabel(newE.x + 12, newE.y - 8, 'e⁻ (1 MeV)', '#00D2FF');
+            }
+          }
+
+          // 2. Draw Water Molecules (H2O) & check collision with primary electrons
+          waterMolecules.forEach((wm, wIdx) => {
+            if (wm.hitCooldown > 0) wm.hitCooldown--;
+
+            simCtx.beginPath();
+            simCtx.arc(wm.x, wm.y, wm.r, 0, Math.PI * 2);
+            simCtx.fillStyle = wm.hitCooldown > 0 ? 'rgba(0, 210, 255, 0.85)' : 'rgba(56, 189, 248, 0.32)';
+            simCtx.fill();
+            simCtx.strokeStyle = 'rgba(56, 189, 248, 0.65)';
+            simCtx.lineWidth = 1;
+            simCtx.stroke();
+
+            // Occasionally show transient 'H2O' label next to a representative water molecule
+            if (Math.random() < 0.0025 && wm.hitCooldown === 0) {
+              spawnTransientLabel(wm.x + 6, wm.y - 6, 'H₂O', '#7DD3FC');
+            }
+          });
+
+          // 3. Draw Trace Micropollutants (ultra-low concentration contaminants on the right)
+          tracePollutants.forEach((tp) => {
+            tp.x += tp.vx;
+            tp.y += tp.vy;
+            if (tp.x < w * 0.58 || tp.x > w - 22) tp.vx *= -1;
+            if (tp.y < 28 || tp.y > h - 32) tp.vy *= -1;
+
+            if (tp.state === 'mineralized') {
+              tp.flashTimer--;
+              // Draw neutralized emerald ring
+              simCtx.beginPath();
+              simCtx.arc(tp.x, tp.y, tp.r + 3, 0, Math.PI * 2);
+              simCtx.strokeStyle = '#10B981';
+              simCtx.lineWidth = 1.8;
+              simCtx.stroke();
+
+              if (tp.flashTimer <= 0) {
+                // Respawn a new trace micropollutant molecule entering the flow
+                tp.state = 'contaminant';
+                tp.x = w * 0.65 + Math.random() * (w * 0.25);
+                tp.y = 32 + Math.random() * (h - 64);
+                if (Math.random() < 0.65) {
+                  spawnTransientLabel(tp.x - 24, tp.y - 10, 'Pollutant (ng/L)', '#FB7185');
+                }
+              }
+            } else {
+              // Draw recalcitrant trace contaminant hexagon/circle
+              simCtx.beginPath();
+              simCtx.arc(tp.x, tp.y, tp.r, 0, Math.PI * 2);
+              simCtx.fillStyle = 'rgba(244, 63, 94, 0.35)';
+              simCtx.fill();
+              simCtx.strokeStyle = '#FB7185';
+              simCtx.lineWidth = 1.8;
+              simCtx.stroke();
+            }
+          });
+
+          // 4. Update & Draw Primary Electrons (e⁻)
+          for (let i = primaryElectrons.length - 1; i >= 0; i--) {
+            const el = primaryElectrons[i];
+            el.x += el.vx;
+            el.y += el.vy;
+
+            // Draw electron track tail
+            simCtx.strokeStyle = 'rgba(0, 210, 255, 0.75)';
+            simCtx.lineWidth = 2;
+            simCtx.beginPath();
+            simCtx.moveTo(el.x - el.vx * 3.5, el.y - el.vy * 3.5);
+            simCtx.lineTo(el.x, el.y);
+            simCtx.stroke();
+
+            simCtx.beginPath();
+            simCtx.arc(el.x, el.y, 2.6, 0, Math.PI * 2);
+            simCtx.fillStyle = '#00D2FF';
+            simCtx.fill();
+
+            // Check collision with any H2O molecule
+            for (let j = 0; j < waterMolecules.length; j++) {
+              const wm = waterMolecules[j];
+              if (wm.hitCooldown === 0 && Math.hypot(el.x - wm.x, el.y - wm.y) < wm.r + 5) {
+                wm.hitCooldown = 36;
+                // Spawn reactive radiolytic species (•OH, e-_aq, H•, H2O2)
+                const speciesPool = [
+                  { sym: '•OH', color: '#00D2FF' },
+                  { sym: 'e⁻_aq', color: '#818CF8' },
+                  { sym: 'H•', color: '#34D399' },
+                  { sym: 'H₂O₂', color: '#FBBF24' }
+                ];
+                const chosen = speciesPool[Math.floor(Math.random() * speciesPool.length)];
+                // Pick an active contaminant target to home in on
+                const activeTargets = tracePollutants.filter((t) => t.state === 'contaminant');
+                const target = activeTargets.length > 0
+                  ? activeTargets[Math.floor(Math.random() * activeTargets.length)]
+                  : null;
+
+                spawnedRadicals.push({
+                  x: wm.x,
+                  y: wm.y,
+                  vx: 1.8 + Math.random() * 1.2,
+                  vy: (Math.random() - 0.5) * 1.8,
+                  sym: chosen.sym,
+                  color: chosen.color,
+                  target: target,
+                  life: 0
+                });
+
+                // Show transient symbol right at birth of the radical
+                if (Math.random() < 0.75) {
+                  spawnTransientLabel(wm.x + 5, wm.y - 8, chosen.sym, chosen.color);
+                }
+                break;
+              }
+            }
+
+            if (el.x > w * 0.72 || el.y < 10 || el.y > h - 10) {
+              primaryElectrons.splice(i, 1);
+            }
+          }
+
+          // 5. Update & Draw Spawned Radicals homing in on Trace Micropollutants
+          for (let i = spawnedRadicals.length - 1; i >= 0; i--) {
+            const rad = spawnedRadicals[i];
+            rad.life++;
+
+            if (rad.target && rad.target.state === 'contaminant') {
+              const dx = rad.target.x - rad.x;
+              const dy = rad.target.y - rad.y;
+              const dist = Math.hypot(dx, dy) || 1;
+              rad.vx = (dx / dist) * 2.7;
+              rad.vy = (dy / dist) * 2.7;
+
+              if (dist < rad.target.r + 4) {
+                // Radical neutralizes trace micropollutant!
+                rad.target.state = 'mineralized';
+                rad.target.flashTimer = 45;
+                spawnTransientLabel(rad.target.x - 18, rad.target.y - 10, 'CO₂ + H₂O ✓', '#10B981');
+                spawnedRadicals.splice(i, 1);
+                continue;
+              }
+            }
+
+            rad.x += rad.vx;
+            rad.y += rad.vy;
+
+            simCtx.beginPath();
+            simCtx.arc(rad.x, rad.y, 3.2, 0, Math.PI * 2);
+            simCtx.fillStyle = rad.color;
+            simCtx.fill();
+
+            if (rad.life > 120 || rad.x > w || rad.y < 0 || rad.y > h) {
+              spawnedRadicals.splice(i, 1);
+            }
+          }
+
+          // 6. Render Transient Chemical Symbols (Appear & Disappear smoothly)
+          simCtx.font = 'bold 10.5px "JetBrains Mono", monospace';
+          for (let i = transientLabels.length - 1; i >= 0; i--) {
+            const lbl = transientLabels[i];
+            lbl.life++;
+            lbl.y -= 0.18; // gentle upward float
+
+            // Compute fade-in / fade-out alpha
+            let alpha = 1;
+            if (lbl.life < 15) alpha = lbl.life / 15;
+            else if (lbl.life > lbl.maxLife - 22) alpha = (lbl.maxLife - lbl.life) / 22;
+
+            simCtx.save();
+            simCtx.globalAlpha = Math.max(0, Math.min(1, alpha));
+            simCtx.fillStyle = 'rgba(6, 10, 18, 0.82)';
+            const textW = simCtx.measureText(lbl.text).width;
+            simCtx.fillRect(lbl.x - 3, lbl.y - 10, textW + 6, 13);
+            simCtx.fillStyle = lbl.color;
+            simCtx.fillText(lbl.text, lbl.x, lbl.y);
+            simCtx.restore();
+
+            if (lbl.life >= lbl.maxLife) {
+              transientLabels.splice(i, 1);
+            }
+          }
+
+          // 7. Render the companion Real-Time Multi-Timescale Concentration Chart
+          if (kinCanvas) {
+            renderKineticsChart(kinCanvas.width, kinCanvas.height);
+          }
+        } else if (activeSimMode === 'mo99') {
+          // Draw High-Z Converter + Heavy Water (D2O) Hybrid Target Assembly
+          const cx = w * 0.54;
+          const cy = h * 0.5;
+
+          // D2O Moderator Tank Outer Ring
+          simCtx.beginPath();
+          simCtx.arc(cx, cy, 68, 0, Math.PI * 2);
+          simCtx.fillStyle = 'rgba(0, 210, 255, 0.1)';
+          simCtx.fill();
+          simCtx.lineWidth = 2;
+          simCtx.strokeStyle = '#00D2FF';
+          simCtx.stroke();
+
+          // Mo Core Target
+          const heatRadius = 26 + Math.sin(animTick * 2) * 3;
+          const heatGrad = simCtx.createRadialGradient(cx, cy, 4, cx, cy, heatRadius);
+          heatGrad.addColorStop(0, '#F59E0B');
+          heatGrad.addColorStop(0.6, '#10B981');
+          heatGrad.addColorStop(1, 'rgba(16, 185, 129, 0)');
+          simCtx.beginPath();
+          simCtx.arc(cx, cy, heatRadius, 0, Math.PI * 2);
+          simCtx.fillStyle = heatGrad;
+          simCtx.fill();
+
+          // Incident Electron Beam from Left
+          simCtx.strokeStyle = '#00D2FF';
+          simCtx.lineWidth = 4;
+          simCtx.beginPath();
+          simCtx.moveTo(15, cy);
+          simCtx.lineTo(cx - 32, cy);
+          simCtx.stroke();
+
+          // Photoneutron & Capture Tracks inside D2O
+          for (let k = 0; k < 12; k++) {
+            const a = (k / 12) * Math.PI * 2 + animTick * 0.4;
+            const r1 = 18;
+            const r2 = 62;
+            simCtx.strokeStyle = k % 2 === 0 ? '#10B981' : '#38BDF8';
+            simCtx.lineWidth = 1.5;
+            simCtx.beginPath();
+            simCtx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
+            simCtx.lineTo(cx + Math.cos(a + 0.35) * r2, cy + Math.sin(a + 0.35) * r2);
+            simCtx.stroke();
+          }
+        } else if (activeSimMode === 'labyrinth') {
+          // Draw Top-Down Accelerator Vault & Maze Walls
+          simCtx.strokeStyle = '#64748B';
+          simCtx.lineWidth = 6;
+          // Outer Vault Box
+          simCtx.strokeRect(30, 26, w - 60, h - 58);
+
+          // Maze Inner Baffle Walls
+          simCtx.beginPath();
+          simCtx.moveTo(w * 0.45, 26);
+          simCtx.lineTo(w * 0.45, h * 0.65);
+          simCtx.moveTo(w * 0.72, h - 32);
+          simCtx.lineTo(w * 0.72, h * 0.35);
+          simCtx.stroke();
+
+          // Source in Vault (Left)
+          const sx = w * 0.22;
+          const sy = h * 0.5;
+          simCtx.beginPath();
+          simCtx.arc(sx, sy, 7, 0, Math.PI * 2);
+          simCtx.fillStyle = '#00D2FF';
+          simCtx.fill();
+
+          // Streaming Ray Path Attenuating Through Maze Legs
+          simCtx.strokeStyle = '#10B981';
+          simCtx.lineWidth = 2.5;
+          simCtx.setLineDash([6, 4]);
+          simCtx.lineDashOffset = -animTick * 12;
+          simCtx.beginPath();
+          simCtx.moveTo(sx, sy);
+          simCtx.lineTo(w * 0.36, h * 0.78);
+          simCtx.lineTo(w * 0.58, h * 0.78);
+          simCtx.lineTo(w * 0.58, h * 0.22);
+          simCtx.lineTo(w * 0.84, h * 0.22);
+          simCtx.lineTo(w * 0.84, h * 0.75);
+          simCtx.stroke();
+          simCtx.setLineDash([]);
+        }
+
+        requestAnimationFrame(renderSimMonitor);
+      }
+
+      updateSimMetrics();
+      renderSimMonitor();
+
+      /* -----------------------------------------------------------
+       * 6. INTERACTIVE VECTOR TIMELINES:
+       *    (1) EBWT (Wastewater Treatment) & (2) EBFGT (Flue Gas Treatment)
+       * ----------------------------------------------------------- */
+      const ebwtTimelineData = {
+        en: {
+          '1970s': {
+            badge: '1970s MILESTONE',
+            title: 'Foundational Pulse Radiolysis & Boston Deer Island Sludge Pilots',
+            desc: 'Early empirical validation of high-energy electron beams for disinfecting municipal sewage sludge and degrading recalcitrant organic pollutants. Researchers established primary water radiolysis G-values, though depth-dose uniformity and multi-scavenger competition remained empirical approximations.',
+            spec1: '• Beam Energy: 0.75 – 3.0 MeV',
+            spec2: '• Modeling: Empirical G-Value Tables',
+            spec3: '• Focus: Coliform Inactivation & BOD/COD'
+          },
+          '1980s': {
+            badge: '1980s–90s MILESTONE',
+            title: 'Miami Virginia Key Continuous-Flow Plant & High-Power Curtain Accelerators',
+            desc: 'Transition from batch irradiation to continuous-flow thin-sheet hydraulic weirs and cascade reactors (up to 645 m³/day in Miami). High-current DC electron accelerators demonstrated large-scale mineralization of chlorinated hydrocarbons (TCE, PCE), benzene, and industrial organic effluents.',
+            spec1: '• Beam Energy: 1.0 – 1.5 MeV (75–120 kW)',
+            spec2: '• Modeling: 1D Analytical Depth-Dose & Pseudo-First-Order',
+            spec3: '• Focus: Halogenated VOCs & Continuous Hydraulic Weirs'
+          },
+          '2000s': {
+            badge: '2000s MILESTONE',
+            title: 'Daegu Textile Dyeing Mega-Plant (Korea) & Synergistic Hybrid AOPs',
+            desc: 'Commissioning of the 10,000 m³/day industrial EBWT plant in Daegu (1 MeV, 400 kW) integrated with biological treatment. Combining electron beams with ozonation (O₃), H₂O₂, and coagulation unlocked synergistic radical pathways while drastically reducing required absorbed doses and operating costs.',
+            spec1: '• Beam Energy: 1.0 – 2.5 MeV (400 kW Scale)',
+            spec2: '• Modeling: Bulk Homogeneous ODE Reaction Networks',
+            spec3: '• Focus: Azo Dyes, Biodegradability (BOD₅/COD) & Hybrid O₃/EB'
+          },
+          '2010s': {
+            badge: '2010s MILESTONE',
+            title: '3D Monte Carlo Reactor Dosimetry & Guanhua 30,000 m³/day Industrial Complex',
+            desc: 'Deployment of coupled MCNP/FLUKA/Geant4 macroscopic transport with CFD hydrodynamics to resolve turbulent mixing and non-uniform dose distributions near titanium beam windows. Scaled commercially to treat pharmaceuticals, antibiotics, papermaking effluents, and high-strength industrial brines.',
+            spec1: '• Beam Energy: 1.5 – 10 MeV (High-Throughput Arrays)',
+            spec2: '• Modeling: Coupled MCNP6 / FLUKA + Turbulent CFD',
+            spec3: '• Focus: Pharmaceuticals, Antibiotics & Dose Uniformity'
+          },
+          '2020s': {
+            badge: '2020s–PRESENT MILESTONE',
+            title: 'Nanoscale Geant4-DNA Track-Structure Kinetics, pH Inflection & Trace Micropollutants',
+            desc: 'Bridging femtosecond-to-microsecond track-structure spurs (•OH, e⁻_aq, H•, H₂O₂) in Geant4-DNA with multi-scavenger wastewater matrices (DO, HCO₃⁻/CO₃²⁻, NO₃⁻, DOC). Accurately predicts dose-dependent pH inflection dynamics and mineralization of persistent trace micropollutants (PFAS, EDCs, and antibiotic resistance genes).',
+            spec1: '• Time Resolution: 10⁻¹⁵ s (fs) → 10⁻⁶ s (µs) → Bulk s',
+            spec2: '• Modeling: Geant4-DNA Track-Structure + Stiff Kinetic Solver',
+            spec3: '• Focus: pH Inflection Dynamics, Scavenger Competition & PFAS'
+          }
+        },
+        fa: {
+          '1970s': {
+            badge: 'نقطه عطف دهه ۱۹۷۰',
+            title: 'رادیولیز پالسی پایه و پایلوت‌های لجن فاضلاب دیر آیلند بوستون',
+            desc: 'اعتبارسنجی تجربی اولیه باریکه‌های الکترونی پرانرژی برای گندزدایی لجن فاضلاب شهری و تخریب آلاینده‌های آلی مقاوم. پژوهشگران مقادیر اولیه G رادیولیز آب را تعیین کردند، هرچند یکنواختی دز عمقی و رقابت رادیکال‌گیرها در حد تقریب‌های تجربی باقی ماند.',
+            spec1: '• انرژی باریکه: ۰.۷۵ تا ۳.۰ مگاالکترون‌ولت',
+            spec2: '• مدل‌سازی: جداول تجربی مقادیر G',
+            spec3: '• تمرکز: غیرفعال‌سازی کلیفرم‌ها و کاهش BOD/COD'
+          },
+          '1980s': {
+            badge: 'نقطه عطف دهه ۱۹۸۰ و ۱۹۹۰',
+            title: 'تصفیه‌خانه جریان پیوسته ویرجینیا کی میامی و شتاب‌دهنده‌های پرقدرت',
+            desc: 'گذار از پرتودهی ناپیوسته به سرریزهای لایه‌نازک جریان پیوسته و راکتورهای آبشاری (تا ۶۴۵ مترمکعب در روز در میامی). شتاب‌دهنده‌های DC جریان بالا، معدنی‌سازی در مقیاس بزرگ هیدروکربن‌های کلردار (TCE، PCE) و پساب‌های آلی صنعتی را به اثبات رساندند.',
+            spec1: '• انرژی باریکه: ۱.۰ تا ۱.۵ مگاالکترون‌ولت (۷۵–۱۲۰ کیلووات)',
+            spec2: '• مدل‌سازی: دز عمقی تحلیلی یک‌بعدی و سینتیک شبه‌درجه اول',
+            spec3: '• تمرکز: ترکیبات آلی فرار هالوژنه و سرریزهای هیدرولیکی پیوسته'
+          },
+          '2000s': {
+            badge: 'نقطه عطف دهه ۲۰۰۰',
+            title: 'ابرپروژه رنگرزی نساجی دائگو (کره جنوبی) و فرآیندهای اکسیداسیون پیشرفته هیبریدی',
+            desc: 'بهره‌برداری از تصفیه‌خانه صنعتی ۱۰,۰۰۰ مترمکعب در روز در دائگو (۱ مگاالکترون‌ولت، ۴۰۰ کیلووات) در ترکیب با تصفیه بیولوژیکی. تلفیق باریکه الکترونی با ازن‌زنی (O₃)، پراکسید هیدروژن و انعقاد، مسیرهای رادیکالی هم‌افزا را فعال کرد و دز جذبی مورد نیاز را به شدت کاهش داد.',
+            spec1: '• انرژی باریکه: ۱.۰ تا ۲.۵ مگاالکترون‌ولت (مقیاس ۴۰۰ کیلووات)',
+            spec2: '• مدل‌سازی: شبکه‌های واکنش معادلات دیفرانسیل همگن توده‌ای',
+            spec3: '• تمرکز: رنگ‌های آزو، زیست‌تخریب‌پذیری و سیستم هیبریدی O₃/EB'
+          },
+          '2010s': {
+            badge: 'نقطه عطف دهه ۲۰۱۰',
+            title: 'دزیمتری مونت‌کارلوی سه‌بعدی راکتور و مجتمع صنعتی ۳۰,۰۰۰ مترمکعبی گوانهوا',
+            desc: 'به‌کارگیری کدهای ترابرد ماکروسکوپی MCNP، FLUKA و Geant4 کوپل‌شده با دینامیک سیالات محاسباتی (CFD) برای حل اختلاط آشفته و توزیع غیریکنواخت دز در مجاورت پنجره تیتانیومی باریکه. توسعه تجاری برای تصفیه داروها، آنتی‌بیوتیک‌ها و پساب‌های صنعتی غلیظ.',
+            spec1: '• انرژی باریکه: ۱.۵ تا ۱۰ مگاالکترون‌ولت (آرایه‌های پرتوان)',
+            spec2: '• مدل‌سازی: کوپل MCNP6 / FLUKA با هیدرودینامیک CFD',
+            spec3: '• تمرکز: آلاینده‌های دارویی، آنتی‌بیوتیک‌ها و یکنواختی دز'
+          },
+          '2020s': {
+            badge: 'نقطه عطف دهه ۲۰۲۰ تا کنون',
+            title: 'سینتیک ساختار رد نانومقیاس Geant4-DNA، نقاط عطف pH و آلاینده‌های با غلظت بسیار کم',
+            desc: 'پیوند ساختار رد پرتو از مقیاس فمتوثانیه تا میکروثانیه (•OH، e⁻_aq، H•، H₂O₂) در Geant4-DNA با ماتریس‌های پیچیده رادیکال‌گیر فاضلاب (اکسیژن محلول، بی‌کربنات، نیترات و کربن آلی). پیش‌بینی دقیق نقاط عطف تغییرات pH و معدنی‌سازی کامل آلاینده‌های پایدار با غلظت بسیار کم (PFAS و اختلال‌گرهای غدد درون‌ریز).',
+            spec1: '• تفکیک زمانی: ۱۰⁻¹⁵ ثانیه (فمتو) تا ۱۰⁻⁶ ثانیه (میکرو) و مقیاس توده‌ای',
+            spec2: '• مدل‌سازی: ساختار رد Geant4-DNA + حل‌گر سینتیک چندمقیاسی',
+            spec3: '• تمرکز: دینامیک نقاط عطف pH، رقابت رادیکال‌گیرها و حذف PFAS'
+          }
+        }
+      };
+
+      const ebfgtTimelineData = {
+        en: {
+          '1970s': {
+            badge: '1970s MILESTONE',
+            title: 'Discovery of Dry Simultaneous SO₂/NOₓ Radiolytic Oxidation & Ammonia Injection',
+            desc: 'Pioneering batch and bench-scale experiments by Ebara Corp. and JAERI (Japan) demonstrated that irradiating humid flue gas with high-energy electrons generates oxidizing radicals (•OH, O•, HO₂•) that rapidly convert SO₂ and NOₓ into H₂SO₄ and HNO₃, which react with stoichiometric NH₃ to form solid agricultural fertilizer aerosols.',
+            spec1: '• Beam Energy: 0.3 – 0.75 MeV (Bench & Pilot)',
+            spec2: '• Mechanism: N₂/O₂/H₂O → •OH, O(³P), HO₂•',
+            spec3: '• Byproduct: Dry (NH₄)₂SO₄ & NH₄NO₃ Aerosol'
+          },
+          '1980s': {
+            badge: '1980s MILESTONE',
+            title: 'Multi-National Pilot Demonstrations (Indianapolis, Karlsruhe & Kawęczyn)',
+            desc: 'Deployment of industrial pilot EBFGT loops on coal-fired utility boilers and steel sinter plants in the USA, Germany, Japan, and Poland (up to 20,000 Nm³/h). Engineers optimized dual-stage longitudinal irradiation vessels, spray-cooler humidity conditioning, and electrostatic precipitator (ESP) collection of sub-micron ammonium salt particles.',
+            spec1: '• Beam Energy: 0.5 – 0.8 MeV (Dual-Stage Irradiation)',
+            spec2: '• Dose Regime: 8 – 15 kGy (Multi-Pass Gas Chamber)',
+            spec3: '• Focus: Thermal NOₓ Back-Reaction Suppression & ESP Capture'
+          },
+          '1990s': {
+            badge: '1990s–2000s MILESTONE',
+            title: 'Full-Scale Coal Power Station EBFGT Plants in Chengdu (China) & Pomorzany (Poland)',
+            desc: 'Industrial commissioning of the 300,000 Nm³/h Chengdu plant and the 270,000 Nm³/h Pomorzany EPS facility equipped with four 300 kW (0.7–0.8 MeV) accelerators. Achieved up to 95% SO₂ and 80% NOₓ simultaneous removal with zero wastewater discharge and commercial NPK-grade fertilizer recovery.',
+            spec1: '• Accelerator Power: 4 × 300 kW (1.2 MW Total Beam Power)',
+            spec2: '• Flow Capacity: 270,000 – 300,000 Nm³/h Flue Gas',
+            spec3: '• Removal Efficiency: up to 95% SO₂ & 70–80% NOₓ'
+          },
+          '2010s': {
+            badge: '2010s MILESTONE',
+            title: 'PAHs, Municipal Incinerator Dioxins (PCDD/Fs) & Maritime Diesel Exhaust Scrubbing',
+            desc: 'Expansion beyond coal utilities to municipal solid waste incinerators, metallurgical furnaces, and high-sulfur marine diesel engines. Coupled Monte Carlo gas-phase dosimetry and non-thermal plasma kinetic codes modeled simultaneous destruction of PCDD/Fs (dioxins), benzene/toluene VOCs, PAHs, and elemental mercury (Hg⁰) oxidation.',
+            spec1: '• Beam Energy: 0.5 – 1.5 MeV (Compact Shielded Modules)',
+            spec2: '• Modeling: Coupled 3D Monte Carlo Depth-Dose + Gas-Phase Kinetics',
+            spec3: '• Focus: Dioxins (PCDD/F), VOCs, PAHs & Hg⁰ Oxidation'
+          },
+          '2020s': {
+            badge: '2020s–PRESENT MILESTONE',
+            title: 'Multi-Phase Track-Structure Gas-Droplet Radiolysis & Hybrid Wet/Dry Scrubbing',
+            desc: 'Next-generation hybrid EBFGT combining electron-beam irradiation with wet/semi-dry oxidizing scrubbers and catalytic beds for ultra-low emission compliance. Multi-scale Monte Carlo track simulations quantify primary ion-pair yields (W-values), aerosol droplet interfacial radical mass transfer, and energy-efficiency optimization under variable flue loads.',
+            spec1: '• Energy Consumption: < 1.5–2.0% of Plant Electrical Output',
+            spec2: '• Modeling: Multi-Phase Monte Carlo Track + Aerosol Microphysics',
+            spec3: '• Focus: Zero-Liquid-Discharge (ZLD), Carbon-Capture Synergy & Ultra-Low NOₓ'
+          }
+        },
+        fa: {
+          '1970s': {
+            badge: 'نقطه عطف دهه ۱۹۷۰',
+            title: 'کشف اکسیداسیون پرتوشیمیایی خشک و هم‌زمان SO₂/NOₓ و تزریق آمونیاک',
+            desc: 'آزمایش‌های پیشگامانه در مقیاس آزمایشگاهی توسط شرکت Ebara و موسسه JAERI (ژاپن) نشان داد که پرتودهی گازهای خروجی مرطوب با الکترون‌های پرانرژی، رادیکال‌های اکسیدکننده (•OH، O•، HO₂•) تولید می‌کند که به سرعت SO₂ و NOₓ را به اسید سولفوریک و اسید نیتریک تبدیل کرده و در واکنش با آمونیاک (NH₃)، ذرات جامد کود کشاورزی تولید می‌کنند.',
+            spec1: '• انرژی باریکه: ۰.۳ تا ۰.۷۵ مگاالکترون‌ولت (آزمایشگاهی و پایلوت)',
+            spec2: '• مکانیسم: برانگیختگی N₂/O₂/H₂O ← تولید •OH، O(³P) و HO₂•',
+            spec3: '• محصول جانبی: کشف آئروسل خشک سولفات و نیترات آمونیوم'
+          },
+          '1980s': {
+            badge: 'نقطه عطف دهه ۱۹۸۰',
+            title: 'پایلوت‌های چندملیتی در مقیاس نیمه‌صنعتی (ایندیاناپولیس، کارلسروهه و کاوچین)',
+            desc: 'راه‌اندازی واحدهای پایلوت EBFGT روی بویلرهای زغال‌سنگ و کارخانه‌های فولاد در آمریکا، آلمان، ژاپن و لهستان (تا ۲۰,۰۰۰ نرمال مترمکعب بر ساعت). مهندسان هندسه محفظه پرتودهی دومرحله‌ای، تنظیم رطوبت در برج خنک‌کن پاششی و جمع‌آوری ذرات زیرمیکرونی نمک‌های آمونیوم با رسوب‌دهنده الکترواستاتیک (ESP) را بهینه‌سازی کردند.',
+            spec1: '• انرژی باریکه: ۰.۵ تا ۰.۸ مگاالکترون‌ولت (پرتودهی دومرحله‌ای)',
+            spec2: '• رژیم دز جذبی: ۸ تا ۱۵ کیلوگری (محفظه گازی چندعبوره)',
+            spec3: '• تمرکز: مهار واکنش برگشتی NOₓ و بهینه‌سازی فیلتراسیون ESP'
+          },
+          '1990s': {
+            badge: 'نقطه عطف دهه ۱۹۹۰ و ۲۰۰۰',
+            title: 'تصفیه‌خانه‌های تمام‌صنعتی نیروگاه‌های زغال‌سنگ در چنگدو (چین) و پومورزانی (لهستان)',
+            desc: 'بهره‌برداری صنعتی از واحد ۳۰۰,۰۰۰ مترمکعب بر ساعت چنگدو و نیروگاه ۲۷۰,۰۰۰ مترمکعب بر ساعت پومورزانی لهستان مجهز به چهار شتاب‌دهنده ۳۰۰ کیلوواتی (۰.۷–۰.۸ مگاالکترون‌ولت). دستیابی به حذف هم‌زمان ۹۵٪ SO₂ و ۸۰٪ NOₓ بدون تولید پساب ثانویه همراه با تولید تجاری کود کشاورزی استاندارد.',
+            spec1: '• توان شتاب‌دهنده: ۴ × ۳۰۰ کیلووات (مجموع توان ۱.۲ مگاوات)',
+            spec2: '• ظرفیت جریان گاز: ۲۷۰,۰۰۰ تا ۳۰۰,۰۰۰ نرمال مترمکعب بر ساعت',
+            spec3: '• راندمان حذف: تا ۹۵٪ دی‌اکسید گوگرد و ۷۰–۸۰٪ اکسیدهای نیتروژن'
+          },
+          '2010s': {
+            badge: 'نقطه عطف دهه ۲۰۱۰',
+            title: 'تخریب هیدروکربن‌های آروماتیک چندحلقه‌ای (PAHs)، دی‌اکسین‌های زباله‌سوز و اگزوز کشتی‌ها',
+            desc: 'گسترش کاربرد فراتر از نیروگاه‌های زغال‌سنگ به زباله‌سوزهای شهری، واحدهای زینتر متالورژی و موتورهای دیزل دریایی با گوگرد بالا. کدهای مونت‌کارلوی دزیمتری فاز گاز کوپل‌شده با سینتیک پلاسمای غیرحرارتی، تخریب هم‌زمان دی‌اکسین‌ها (PCDD/Fs)، ترکیبات آلی فرار (VOCs) و اکسیداسیون جیوه عنصری (Hg⁰) را مدل‌سازی کردند.',
+            spec1: '• انرژی باریکه: ۰.۵ تا ۱.۵ مگاالکترون‌ولت (ماژول‌های فشرده حفاظ‌دار)',
+            spec2: '• مدل‌سازی: دز عمقی مونت‌کارلوی سه‌بعدی + سینتیک فاز گاز',
+            spec3: '• تمرکز: دی‌اکسین‌ها، ترکیبات آلی فرار، PAHs و اکسیداسیون جیوه'
+          },
+          '2020s': {
+            badge: 'نقطه عطف دهه ۲۰۲۰ تا کنون',
+            title: 'رادیولیز چندفازی گاز-قطره با ساختار رد میکروسکوپی و تلفیق با اسکرابرهای مرطوب هیبریدی',
+            desc: 'نسل نوین سیستم‌های هیبریدی EBFGT با تلفیق پرتودهی الکترونی، اسکرابرهای مرطوب/نیمه‌خشک اکسیدکننده و بسترهای کاتالیستی برای استانداردهای آلایندگی فوق‌العاده سخت‌گیرانه. شبیه‌سازی‌های مونت‌کارلوی چندمقیاسی، بهره تولید جفت‌یون اولیه (مقادیر W)، انتقال رادیکال در مرز قطره-گاز و بهینه‌سازی مصرف انرژی را کمّی‌سازی می‌کنند.',
+            spec1: '• مصرف انرژی: کمتر از ۱.۵ تا ۲.۰ درصد توان الکتریکی واحد',
+            spec2: '• مدل‌سازی: ترابرد مونت‌کارلوی چندفازی + میکروفیزیک آئروسل',
+            spec3: '• تمرکز: حذف کامل پساب (ZLD)، هم‌افزایی جذب کربن و NOₓ فوق‌کم'
+          }
+        }
+      };
+
+      let activeEbwtEra = '1970s';
+      let activeEbfgtEra = '1970s';
+
+      const ebwtBtns = document.querySelectorAll('.timeline-node-btn[data-era]');
+      const tlBadge = document.getElementById('tl-badge');
+      const tlTitle = document.getElementById('tl-title');
+      const tlDesc = document.getElementById('tl-desc');
+      const tlSpec1 = document.getElementById('tl-spec-1');
+      const tlSpec2 = document.getElementById('tl-spec-2');
+      const tlSpec3 = document.getElementById('tl-spec-3');
+
+      function updateEbwtTimelineDisplay(era) {
+        activeEbwtEra = era;
+        const langDict = ebwtTimelineData[currentLang] || ebwtTimelineData.en;
+        const item = langDict[era] || langDict['1970s'];
+        if (tlBadge) tlBadge.textContent = item.badge;
+        if (tlTitle) tlTitle.textContent = item.title;
+        if (tlDesc) tlDesc.textContent = item.desc;
+        if (tlSpec1) tlSpec1.textContent = item.spec1;
+        if (tlSpec2) tlSpec2.textContent = item.spec2;
+        if (tlSpec3) tlSpec3.textContent = item.spec3;
+      }
+
+      ebwtBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          const era = this.getAttribute('data-era');
+          ebwtBtns.forEach((b) => {
+            b.classList.remove('active', 'border-cyan-400');
+            b.classList.add('border-slate-700');
+            const dot = b.querySelector('span:first-child');
+            if (dot) dot.classList.remove('shadow-lg', 'shadow-cyan-400/50');
+          });
+          this.classList.add('active', 'border-cyan-400');
+          this.classList.remove('border-slate-700');
+          const activeDot = this.querySelector('span:first-child');
+          if (activeDot) activeDot.classList.add('shadow-lg', 'shadow-cyan-400/50');
+          updateEbwtTimelineDisplay(era);
+        });
+      });
+
+      const ebfgtBtns = document.querySelectorAll('.timeline-node-btn[data-ebfgt-era]');
+      const ebfgtBadge = document.getElementById('ebfgt-badge');
+      const ebfgtTitle = document.getElementById('ebfgt-title');
+      const ebfgtDesc = document.getElementById('ebfgt-desc');
+      const ebfgtSpec1 = document.getElementById('ebfgt-spec-1');
+      const ebfgtSpec2 = document.getElementById('ebfgt-spec-2');
+      const ebfgtSpec3 = document.getElementById('ebfgt-spec-3');
+
+      function updateEbfgtTimelineDisplay(era) {
+        activeEbfgtEra = era;
+        const langDict = ebfgtTimelineData[currentLang] || ebfgtTimelineData.en;
+        const item = langDict[era] || langDict['1970s'];
+        if (ebfgtBadge) ebfgtBadge.textContent = item.badge;
+        if (ebfgtTitle) ebfgtTitle.textContent = item.title;
+        if (ebfgtDesc) ebfgtDesc.textContent = item.desc;
+        if (ebfgtSpec1) ebfgtSpec1.textContent = item.spec1;
+        if (ebfgtSpec2) ebfgtSpec2.textContent = item.spec2;
+        if (ebfgtSpec3) ebfgtSpec3.textContent = item.spec3;
+      }
+
+      ebfgtBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          const era = this.getAttribute('data-ebfgt-era');
+          ebfgtBtns.forEach((b) => {
+            b.classList.remove('active', 'border-cyan-400');
+            b.classList.add('border-slate-700');
+            const dot = b.querySelector('span:first-child');
+            if (dot) dot.classList.remove('shadow-lg', 'shadow-cyan-400/50');
+          });
+          this.classList.add('active', 'border-cyan-400');
+          this.classList.remove('border-slate-700');
+          const activeDot = this.querySelector('span:first-child');
+          if (activeDot) activeDot.classList.add('shadow-lg', 'shadow-cyan-400/50');
+          updateEbfgtTimelineDisplay(era);
+        });
+      });
+
+      /* -----------------------------------------------------------
+       * 7. PUBLICATIONS FILTERING & RESEARCH MANUAL TABS
+       * ----------------------------------------------------------- */
+      const filterBtns = document.querySelectorAll('.pub-filter-btn');
+      const pubCards = document.querySelectorAll('.pub-card');
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach((b) => {
+            b.className = 'pub-filter-btn px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyan-400 transition-all';
+          });
+          this.className = 'pub-filter-btn active px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold bg-cyan-500 text-slate-950 transition-all';
+
+          const cat = this.getAttribute('data-filter');
+          pubCards.forEach((card) => {
+            if (cat === 'all' || card.getAttribute('data-category') === cat) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Research Manual Tabs ('Join Us', 'SOPs', 'EDI')
+      const manualTabBtns = document.querySelectorAll('.manual-tab-btn');
+      const manualPanels = {
+        join: document.getElementById('manual-panel-join'),
+        sop: document.getElementById('manual-panel-sop'),
+        edi: document.getElementById('manual-panel-edi')
+      };
+
+      manualTabBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+          manualTabBtns.forEach((b) => {
+            b.className = 'manual-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:border-cyan-400 transition-all';
+          });
+          this.className = 'manual-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-bold bg-cyan-500 text-slate-950 transition-all';
+
+          const target = this.getAttribute('data-manual-tab');
+          Object.keys(manualPanels).forEach((k) => {
+            if (manualPanels[k]) {
+              manualPanels[k].classList.toggle('hidden', k !== target);
+            }
+          });
+        });
+      });
+
+      // LinkedIn Profile Photo Uploader (Saves to DOM, LocalStorage & Exported HTML)
+      const photoInput = document.getElementById('linkedin-photo-input');
+      const profileImg = document.getElementById('researcher-profile-img');
+      const fallbackSvg = document.getElementById('profile-svg-avatar');
+
+      try {
+        const savedPhoto = localStorage.getItem('atk_linkedin_profile_photo');
+        if (savedPhoto && profileImg) {
+          profileImg.src = savedPhoto;
+          profileImg.style.display = 'block';
+          if (fallbackSvg) fallbackSvg.classList.add('hidden');
+        }
+      } catch (e) {
+        // Ignore storage errors in restricted iframes
+      }
+
+      if (photoInput && profileImg) {
+        photoInput.addEventListener('change', function (ev) {
+          const file = ev.target.files && ev.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = function (loadEvent) {
+            const dataUrl = loadEvent.target.result;
+            profileImg.src = dataUrl;
+            profileImg.style.display = 'block';
+            if (fallbackSvg) fallbackSvg.classList.add('hidden');
+            try {
+              localStorage.setItem('atk_linkedin_profile_photo', dataUrl);
+            } catch (e) {
+              // Ignore storage quota errors
+            }
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      /* -----------------------------------------------------------
+       * 8. NCRP 151 LABYRINTH DOSE ESTIMATOR
+       * ----------------------------------------------------------- */
+      const calcEnergy = document.getElementById('calc-energy');
+      const calcLegs = document.getElementById('calc-legs');
+      const calcWall = document.getElementById('calc-wall');
+
+      function updateLabyrinthCalc() {
+        if (!calcEnergy || !calcLegs || !calcWall) return;
+        const E = parseFloat(calcEnergy.value);
+        const legs = parseInt(calcLegs.value, 10);
+        const wall = parseInt(calcWall.value, 10);
+
+        document.getElementById('calc-energy-val').textContent = E.toFixed(1) + ' MeV';
+        document.getElementById('calc-legs-val').textContent = legs + (legs === 1 ? ' Leg' : ' Legs');
+        document.getElementById('calc-wall-val').textContent = wall + ' cm';
+
+        // Empirical NCRP-inspired estimation for educational preview
+        const tvl = 32 + E * 1.1;
+        const wallFactor = Math.pow(10, -(wall / tvl));
+        const legFactor = Math.pow(0.085, legs);
+        const rawDoseMicroSv = Math.max(0.05, 4.5e6 * wallFactor + 1850 * legFactor * (E / 10));
+        const formattedDose = rawDoseMicroSv < 100
+          ? rawDoseMicroSv.toFixed(2) + ' µSv/h'
+          : (rawDoseMicroSv / 1000).toFixed(2) + ' mSv/h';
+
+        const outDoseEl = document.getElementById('calc-out-dose');
+        const outStatusEl = document.getElementById('calc-out-status');
+        outDoseEl.textContent = formattedDose;
+
+        if (rawDoseMicroSv <= 7.5) {
+          outDoseEl.className = 'text-base font-bold text-emerald-400 mt-1';
+          outStatusEl.textContent = '✓ COMPLIANT (< 7.5 µSv/h)';
+          outStatusEl.className = 'text-base font-bold text-cyan-400 mt-1';
+        } else {
+          outDoseEl.className = 'text-base font-bold text-amber-400 mt-1';
+          outStatusEl.textContent = '⚠ ADD LEG / BAFFLE';
+          outStatusEl.className = 'text-base font-bold text-amber-400 mt-1';
+        }
+      }
+
+      if (calcEnergy && calcLegs && calcWall) {
+        calcEnergy.addEventListener('input', updateLabyrinthCalc);
+        calcLegs.addEventListener('input', updateLabyrinthCalc);
+        calcWall.addEventListener('input', updateLabyrinthCalc);
+        updateLabyrinthCalc();
+      }
+
+      /* -----------------------------------------------------------
+       * 9. BACKGROUND SUBTLE PARTICLE TRACK CANVAS (PHYSICS & INDUSTRIAL DETECTOR THEME)
+       * ----------------------------------------------------------- */
+      const bgCanvas = document.getElementById('bg-particle-canvas');
+      const bgCtx = bgCanvas ? bgCanvas.getContext('2d') : null;
+      let particles = [];
+
+      const particlePalette = [
+        { main: '#00D2FF', rgb: '0, 210, 255' },   // Cherenkov Cyan (e⁻ track)
+        { main: '#38BDF8', rgb: '56, 189, 248' },  // Bremsstrahlung Sky Blue (γ track)
+        { main: '#10B981', rgb: '16, 185, 129' }   // Photoneutron Emerald (n track)
+      ];
+
+      function initBgCanvas() {
+        if (!bgCanvas) return;
+        bgCanvas.width = window.innerWidth;
+        bgCanvas.height = window.innerHeight;
+        // Minimal count (36 particles) with distinct physics track tails
+        particles = Array.from({ length: 36 }, (_, idx) => {
+          const speed = 0.55 + Math.random() * 0.55;
+          const angle = Math.random() * Math.PI * 2;
+          const col = particlePalette[idx % particlePalette.length];
+          const x0 = Math.random() * bgCanvas.width;
+          const y0 = Math.random() * bgCanvas.height;
+          return {
+            x: x0,
+            y: y0,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            r: Math.random() * 1.6 + 1.8,
+            color: col.main,
+            rgb: col.rgb,
+            isVertex: idx % 6 === 0,
+            trail: Array.from({ length: 18 }, () => ({ x: x0, y: y0 }))
+          };
+        });
+      }
+
+      function animateBgCanvas() {
+        if (!bgCtx || !bgCanvas) return;
+        bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          // Occasional subtle Monte Carlo small-angle scattering kink
+          if (Math.random() < 0.012) {
+            const currentSpeed = Math.hypot(p.vx, p.vy) || 0.75;
+            const currentAngle = Math.atan2(p.vy, p.vx) + (Math.random() - 0.5) * 0.45;
+            p.vx = Math.cos(currentAngle) * currentSpeed;
+            p.vy = Math.sin(currentAngle) * currentSpeed;
+          }
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > bgCanvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > bgCanvas.height) p.vy *= -1;
+
+          // Record position for visible particle track tail
+          p.trail.push({ x: p.x, y: p.y });
+          if (p.trail.length > 22) p.trail.shift();
+
+          // 1. Draw Particle Track Tail (Monte Carlo / Cherenkov Trajectory)
+          if (p.trail.length > 2) {
+            const tailStart = p.trail[0];
+            const grad = bgCtx.createLinearGradient(tailStart.x, tailStart.y, p.x, p.y);
+            grad.addColorStop(0, `rgba(${p.rgb}, 0)`);
+            grad.addColorStop(0.55, `rgba(${p.rgb}, 0.25)`);
+            grad.addColorStop(1, `rgba(${p.rgb}, 0.72)`);
+
+            bgCtx.beginPath();
+            bgCtx.moveTo(tailStart.x, tailStart.y);
+            for (let t = 1; t < p.trail.length; t++) {
+              bgCtx.lineTo(p.trail[t].x, p.trail[t].y);
+            }
+            bgCtx.strokeStyle = grad;
+            bgCtx.lineWidth = 1.75;
+            bgCtx.stroke();
+          }
+
+          // 2. Draw Inter-Particle Interaction Links (Detector Mesh)
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+            if (dist < 155) {
+              const alpha = (1 - dist / 155) * 0.34;
+              bgCtx.strokeStyle = `rgba(${p.rgb}, ${alpha})`;
+              bgCtx.lineWidth = 1.05;
+              bgCtx.beginPath();
+              bgCtx.moveTo(p.x, p.y);
+              bgCtx.lineTo(p2.x, p2.y);
+              bgCtx.stroke();
+            }
+          }
+
+          // 3. Draw Outer Cherenkov Glow Halo
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.r * 2.6, 0, Math.PI * 2);
+          bgCtx.fillStyle = `rgba(${p.rgb}, 0.22)`;
+          bgCtx.fill();
+
+          // 4. Draw Vivid Particle Core
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          bgCtx.fillStyle = `rgba(${p.rgb}, 0.92)`;
+          bgCtx.fill();
+
+          // Bright Subatomic Center Dot
+          bgCtx.beginPath();
+          bgCtx.arc(p.x, p.y, p.r * 0.45, 0, Math.PI * 2);
+          bgCtx.fillStyle = '#F0F9FF';
+          bgCtx.fill();
+
+          // 5. Minimal Industrial Detector Crosshair on select vertex particles
+          if (p.isVertex) {
+            const arm = p.r + 4.5;
+            bgCtx.strokeStyle = `rgba(${p.rgb}, 0.42)`;
+            bgCtx.lineWidth = 0.9;
+            bgCtx.beginPath();
+            bgCtx.moveTo(p.x - arm, p.y);
+            bgCtx.lineTo(p.x + arm, p.y);
+            bgCtx.moveTo(p.x, p.y - arm);
+            bgCtx.lineTo(p.x, p.y + arm);
+            bgCtx.stroke();
+          }
+        }
+        requestAnimationFrame(animateBgCanvas);
+      }
+
+      window.addEventListener('resize', initBgCanvas);
+      initBgCanvas();
+      animateBgCanvas();
+
+      /* -----------------------------------------------------------
+       * 10. EXPORT / DOWNLOAD WEBSITE FILES MODAL
+       * ----------------------------------------------------------- */
+      const exportModal = document.getElementById('export-modal');
+      const openExportBtn = document.getElementById('open-export-modal-btn');
+      const closeExportBtn = document.getElementById('close-export-modal-btn');
+
+      if (openExportBtn && exportModal) {
+        openExportBtn.addEventListener('click', () => {
+          exportModal.classList.remove('hidden');
+          exportModal.classList.add('flex');
+        });
+      }
+      if (closeExportBtn && exportModal) {
+        closeExportBtn.addEventListener('click', () => {
+          exportModal.classList.add('hidden');
+          exportModal.classList.remove('flex');
+        });
+      }
+
+      function triggerBlobDownload(filename, content, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      const dlStandaloneBtn = document.getElementById('dl-standalone-btn');
+      const dlCleanHtmlBtn = document.getElementById('dl-clean-html-btn');
+      const dlCssBtn = document.getElementById('dl-css-btn');
+      const dlJsBtn = document.getElementById('dl-js-btn');
+
+      if (dlStandaloneBtn) {
+        dlStandaloneBtn.addEventListener('click', () => {
+          const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+          triggerBlobDownload('index.html', fullHtml, 'text/html;charset=utf-8');
+        });
+      }
+
+      if (dlCssBtn) {
+        dlCssBtn.addEventListener('click', () => {
+          const cssContent = document.getElementById('custom-styles').textContent.trim();
+          triggerBlobDownload('styles.css', cssContent, 'text/css;charset=utf-8');
+        });
+      }
+
+      if (dlJsBtn) {
+        dlJsBtn.addEventListener('click', () => {
+          const jsContent = document.getElementById('custom-script').textContent.trim();
+          triggerBlobDownload('script.js', jsContent, 'application/javascript;charset=utf-8');
+        });
+      }
+
+      if (dlCleanHtmlBtn) {
+        dlCleanHtmlBtn.addEventListener('click', () => {
+          const clone = document.documentElement.cloneNode(true);
+          const styleEl = clone.querySelector('#custom-styles');
+          if (styleEl) {
+            const linkEl = document.createElement('link');
+            linkEl.rel = 'stylesheet';
+            linkEl.href = 'styles.css';
+            styleEl.replaceWith(linkEl);
+          }
+          const scriptEl = clone.querySelector('#custom-script');
+          if (scriptEl) {
+            const extScript = document.createElement('script');
+            extScript.src = 'script.js';
+            scriptEl.replaceWith(extScript);
+          }
+          triggerBlobDownload('index.html', '<!DOCTYPE html>\n' + clone.outerHTML, 'text/html;charset=utf-8');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

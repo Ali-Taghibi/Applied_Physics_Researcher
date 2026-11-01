@@ -70,6 +70,34 @@
   </script>
 
   <style id="custom-styles">
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 50;
+    }
+
+    body {
+      padding-top: 138px;
+    }
+
+    @media (min-width: 1280px) {
+      body {
+        padding-top: 80px;
+      }
+    }
+
+    html {
+      scroll-padding-top: 138px;
+    }
+
+    @media (min-width: 1280px) {
+      html {
+        scroll-padding-top: 80px;
+      }
+    }
     :root {
       --bg-primary: #060A12;
       --bg-secondary: #0D1526;
@@ -386,7 +414,7 @@
   <canvas id="bg-particle-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-80" width="1920" height="919"></canvas>
 
   <!-- Sticky Top Navigation Bar -->
-  <header class="sticky top-0 z-50 border-b border-cyan-500/20 bg-slate-950/85 dark:bg-slate-950/85 backdrop-blur-xl transition-colors">
+  <header class="fixed top-0 left-0 right-0 w-full z-50 border-b border-cyan-500/20 bg-slate-950/85 dark:bg-slate-950/85 backdrop-blur-xl transition-colors">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-5 h-20 flex items-center justify-between gap-2 sm:gap-3">
       
       <!-- Brand Identity -->
@@ -411,7 +439,7 @@
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden xl:flex items-center gap-1.5 lg:gap-2.5" aria-label="Main Navigation">
-        <a href="#about" class="nav-item-link active" data-nav="about" data-i18n="navAbout">About Me</a>
+        <a href="#about" class="nav-item-link" data-nav="about" data-i18n="navAbout">About Me</a>
         <a href="#research" class="nav-item-link" data-nav="research" data-i18n="navResearch">Research</a>
         <a href="#timeline" class="nav-item-link" data-nav="timeline" data-i18n="navTimeline">E &amp; E</a>
         <a href="#publications" class="nav-item-link" data-nav="publications" data-i18n="navPublications">Publications</a>
@@ -451,7 +479,7 @@
 
     <!-- Mobile Navigation Bar -->
     <div class="flex xl:hidden items-center justify-around border-t border-slate-800/80 py-2.5 px-2 bg-slate-950/95 text-xs overflow-x-auto gap-2">
-      <a href="#about" class="nav-item-link shrink-0 active" data-nav="about" data-i18n="navAboutMob">About</a>
+      <a href="#about" class="nav-item-link shrink-0" data-nav="about" data-i18n="navAboutMob">About</a>
       <a href="#research" class="nav-item-link shrink-0" data-nav="research" data-i18n="navResearch">Research</a>
       <a href="#timeline" class="nav-item-link shrink-0" data-nav="timeline" data-i18n="navTimelineMob">Timeline</a>
       <a href="#publications" class="nav-item-link shrink-0" data-nav="publications" data-i18n="navPublications">Publications</a>
@@ -2873,29 +2901,29 @@
     });
 
     /* -------------------------------------------------------------
-       11. SCROLLSPY & NAVIGATION HIGHLIGHTING
+       11. NAVIGATION HIGHLIGHTING (ON CLICK ONLY)
     ------------------------------------------------------------- */
-    const sections = document.querySelectorAll('main section[id]');
     const navLinks = document.querySelectorAll('.nav-item-link');
 
-    function highlightNavOnScroll() {
-      const scrollY = window.pageYOffset;
-      sections.forEach(sec => {
-        const top = sec.offsetTop - 120;
-        const height = sec.offsetHeight;
-        const id = sec.getAttribute('id');
-        if (scrollY >= top && scrollY < top + height) {
-          navLinks.forEach(link => {
-            if (link.getAttribute('data-nav') === id) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        const targetNav = this.getAttribute('data-nav');
+        navLinks.forEach(item => {
+          if (item.getAttribute('data-nav') === targetNav) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    const brandLink = document.querySelector('header a[href="#top"]');
+    if (brandLink) {
+      brandLink.addEventListener('click', () => {
+        navLinks.forEach(item => item.classList.remove('active'));
       });
     }
-    window.addEventListener('scroll', highlightNavOnScroll);
 
     /* -------------------------------------------------------------
        12. INITIALIZATION
